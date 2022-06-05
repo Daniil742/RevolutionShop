@@ -12,5 +12,23 @@ namespace RevolutionShopWebApp.Controllers
 		{
 			return View();
 		}
+
+		/// <summary>
+		/// Регистрация.
+		/// </summary>
+		/// <returns> Страница регистрации. </returns>
+		public IActionResult RegistrationPage()
+		{
+			return View();
+		}
+
+		/// <summary>
+		/// Авторизация.
+		/// </summary>
+		/// <returns> Страница авторизации. </returns>
+		public IActionResult AuthorizationPage()
+		{
+			return View();
+		}
 	}
 }
