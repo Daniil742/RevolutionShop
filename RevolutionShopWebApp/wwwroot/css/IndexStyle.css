@@ -1,0 +1,10 @@
+﻿.categories {
+	width: 75%;
+	margin: auto;
+	border-spacing:20px 20px;
+}
+
+td {
+	border: solid 1px silver;
+	text-align: center;
+}

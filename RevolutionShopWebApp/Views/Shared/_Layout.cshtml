@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" asp-href-include="~/css/**/*.css" asp-append-version="true"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <nav>
+        <ul class="topmenu">
+            <li>
+                <a href="~/Home/Index">Логотип()</a>
+            </li>
+            <li>
+                <a href="~/Home/Index">Главная</a>
+            </li>
+
+            <li>
+                <a class="down">Магазин</a>
+                <ul class="submenu">
+                    <li>
+                        <a href="~/Shop/TShirtPage">Футболки</a>
+                    </li>
+                    <li>
+                        <a href="~/Shop/LongsleevePage">Лонгсливы</a>
+                    </li>
+                    <li>
+                        <a href="~/Shop/HoodiePage">Худи</a>
+                    </li>
+                    <li>
+                        <a href="~/Shop/HeaddressPage">Головные уборы</a>
+                    </li>
+                    <li>
+                        <a href="~/Shop/PantAndShortPage">Брюки и шорты</a>
+                    </li>
+                    <li>
+                        <a href="~/Shop/ShopperPage">Шопперы</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="~/Home/Lookbook">Лукбук</a>
+            </li>
+            <li>
+                <a href="~/Home/Sale">Sale</a>
+            </li>
+            <li>
+                <a href="~/Home/DeliveryAndPayment">Доставка и оплата</a>
+            </li>
+            <li>
+                <a href="~/Home/Contact">Контакты</a>
+            </li>
+            <li>
+                <a href="~/Account/AccountPage">Личный кабинет()</a>
+            </li>
+            <li>
+                <a>Корзина()</a>
+            </li>
+            <li>
+                <a href="#blackout">Ссылки()</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="blackout">
+        <div class="links">
+            <a>Ссылка на вк</a>
+            <a href="#" class="close">Закрыть</a>
+        </div>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        @if (IsSectionDefined("Footer"))
+        {
+            @RenderSection("Footer")
+        }
+        else
+        {
+            <div>
+                <p>По вопросам сотрудничества и предложениям:</p>
+                <button>Почта</button>
+            </div>
+        }
+    </footer>
+</body>
+</html>
