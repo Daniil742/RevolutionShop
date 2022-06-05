@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevolutionData", "RevolutionData\RevolutionData.csproj", "{A7A5D7F5-BD33-429A-A615-93A1DBD6B8CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevolutionData", "RevolutionData\RevolutionData.csproj", "{A7A5D7F5-BD33-429A-A615-93A1DBD6B8CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevolutionShopWebApp", "RevolutionShopWebApp\RevolutionShopWebApp.csproj", "{6301F0D5-B7EB-4DEF-A9C6-9F9655DB2873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevolutionShopWebApp", "RevolutionShopWebApp\RevolutionShopWebApp.csproj", "{6301F0D5-B7EB-4DEF-A9C6-9F9655DB2873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAssistants", "AppAssistants\AppAssistants.csproj", "{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6301F0D5-B7EB-4DEF-A9C6-9F9655DB2873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6301F0D5-B7EB-4DEF-A9C6-9F9655DB2873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6301F0D5-B7EB-4DEF-A9C6-9F9655DB2873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
