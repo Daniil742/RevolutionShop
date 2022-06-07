@@ -8,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace AppAssistants
 {
+	/// <summary>
+	/// Отправляет почту.
+	/// </summary>
 	internal class EmailHelper
 	{
+		// Почта отправителя.
 		private const string _senderEmail = "";
+		// Имя отправителя.
 		private const string _senderName = "";
 
+		/// <summary>
+		/// Отправляет код для входа/регистрации на почту.
+		/// </summary>
 		public void Send()
 		{
 			int code = CodeGeneration();
@@ -37,6 +45,10 @@ namespace AppAssistants
 			smtp.Send(message);
 		}
 
+		/// <summary>
+		/// Генерирует рандомное число от 100000 до 999999.
+		/// </summary>
+		/// <returns> Код </returns>
 		private int CodeGeneration()
 		{
 			int code = 0;
