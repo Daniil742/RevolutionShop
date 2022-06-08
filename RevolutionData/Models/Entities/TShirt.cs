@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevolutionData.Models
+namespace RevolutionData.Models.Entities
 {
 	/// <summary>
 	/// Футблка.
 	/// </summary>
-	internal class TShirt
+	public class TShirt
 	{
 		/// <summary>
 		/// Id.
 		/// </summary>
-		public string Id { get; set; }
+		public int Id { get; set; }
 		/// <summary>
 		/// Название.
 		/// </summary>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevolutionData.Models
+namespace RevolutionData.Models.Entities
 {
 	/// <summary>
 	/// Головной убор.

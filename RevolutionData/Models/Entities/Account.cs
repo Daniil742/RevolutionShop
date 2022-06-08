@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevolutionData.Models
+namespace RevolutionData.Models.Entities
 {
 	/// <summary>
 	/// Аккаунт.
 	/// </summary>
-	internal class Account
+	public class Account
 	{
 		/// <summary>
 		/// Id аккаунта.

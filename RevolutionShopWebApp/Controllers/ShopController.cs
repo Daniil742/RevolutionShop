@@ -1,16 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RevolutionData.Interfaces;
+using RevolutionData.Models.Entities;
 
 namespace RevolutionShopWebApp.Controllers
 {
 	public class ShopController : Controller
 	{
+		private readonly IDataModel _dataModel;
+
+		public ShopController(IDataModel dataModel)
+		{
+			_dataModel = dataModel;
+		}
+
 		/// <summary>
 		/// Футболки.
 		/// </summary>
 		/// <returns> Страница с товарами категории "Футболки". </returns>
 		public IActionResult TShirtPage()
 		{
-			return View();
+			return View(_dataModel.GetAll());
 		}
 
 		/// <summary>

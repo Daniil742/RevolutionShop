@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevolutionData.Models
+namespace RevolutionData.Models.Entities
 {
 	/// <summary>
-	/// Худи.
+	/// Брюки и шорты.
 	/// </summary>
-	internal class Hoodie
+	internal class PantAndShort
 	{
 	}
 }

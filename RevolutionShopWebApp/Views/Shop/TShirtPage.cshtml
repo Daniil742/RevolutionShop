@@ -1,4 +1,6 @@
-﻿@{
+﻿@using RevolutionData.Models.Entities
+@model List<TShirt>;
+@{
 	ViewBag.Title = "Футболки";
 }
 
@@ -8,5 +10,9 @@
 		<div class="toppanel">
 			<h1>Футболки</h1>
 		</div>
-	</body>
+	@foreach (var item in Model)
+	{
+		<p>@item.Name</p>
+	}
+</body>
 </html>

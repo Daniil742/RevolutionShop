@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevolutionData.Models
+namespace RevolutionData.Models.Entities
 {
 	/// <summary>
-	/// Заказ.
+	/// Худи.
 	/// </summary>
-	internal class Order
+	internal class Hoodie
 	{
-		/// <summary>
-		/// Id заказа.
-		/// </summary>
-		public int Id { get; set; }
 	}
 }
