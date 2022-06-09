@@ -11,6 +11,7 @@ namespace RevolutionData.Models.DB
 	{
 		public static void Initialize(RevolutionShopDbContext context)
 		{
+			context.Database.EnsureDeleted();
 			context.Database.EnsureCreated();
 
 			if (!context.TShirts.Any())
@@ -32,6 +33,30 @@ namespace RevolutionData.Models.DB
 						Size = "S",
 						Count = 9,
 						Description = "99% хлопок, 1% полиэстер"
+					},
+					new TShirt
+					{
+						Name = "TestName3",
+						Price = 79M,
+						Size = "M",
+						Count = 29,
+						Description = "79% хлопок, 21% полиэстер"
+					},
+					new TShirt
+					{
+						Name = "TestName4",
+						Price = 59M,
+						Size = "M",
+						Count = 29,
+						Description = "79% хлопок, 21% полиэстер"
+					},
+					new TShirt
+					{
+						Name = "TestName5",
+						Price = 39M,
+						Size = "M",
+						Count = 29,
+						Description = "79% хлопок, 21% полиэстер"
 					}
 				});
 
