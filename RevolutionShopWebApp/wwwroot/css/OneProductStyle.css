@@ -1,0 +1,18 @@
+﻿.page {
+	text-align: center;
+	background-color: aquamarine
+}
+
+.photo {
+	width: 50%;
+	display: inline-block;
+	background-color: aqua;
+	/*text-align: center*/
+}
+
+.mainInfo {
+	width: 25%;
+	display: inline-block;
+	background-color: blueviolet;
+	/*text-align: center;*/
+}

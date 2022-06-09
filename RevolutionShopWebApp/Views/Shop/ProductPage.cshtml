@@ -1,0 +1,42 @@
+﻿@using RevolutionData.Models.Entities
+@model TShirt
+@{
+	ViewBag.Title = "Худи";
+}
+
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class="page">
+			<div class="photo">
+				<p>Скролящиеся картинки</p>
+			</div>
+			<div class="mainInfo">
+				<h1>Футболка @Model.Name</h1>
+			@if (Model.Discount > 0)
+			{
+				<p>@(Model.Price * (1 - Model.Discount / 100)) руб.</p>
+				<del>@Model.Price руб.</del>
+				<p>Скидка @Model.Discount%</p>
+			}
+			else
+			{
+				<p>@Model.Price руб.</p>
+			}
+				<p>Размер</p>
+				<label><input type="radio"/>@Model.Size</label>
+			@if (Model.Count > 0)
+			{
+				<p>В наличии</p>
+			}
+			else
+			{
+				<p>Нет в наличии</p>
+			}
+				<button>В корзину</button>
+				<p>Информация о товаре</p>
+				<p>@Model.Description</p>
+		</div>
+		</div>
+	</body>
+</html>

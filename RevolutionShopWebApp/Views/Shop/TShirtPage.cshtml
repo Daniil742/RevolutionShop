@@ -16,7 +16,7 @@
 			<tr>
 			@for (var i = 0; i < Model.Count; i++)
 			{
-				<td>
+				<td onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[i].Id })'">
 					<div>
 						<p>Футболка @Model[i].Name</p>
 						<p>@Model[i].Discount</p>
@@ -35,7 +35,7 @@
 				<tr>
 				@for (var j = index; j < count; j++)
 				{
-					<td>
+					<td onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[j].Id })'">
 						<div>
 							<p>Футболка @Model[j].Name</p>
 							<p>@Model[j].Discount</p>
@@ -58,7 +58,7 @@
 				<tr>
 				@for (var j = index; j < count; j++)
 				{
-					<td onclick="location.href='@Url.Action("Index", "Home")'">
+					<td onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[j].Id })'">
 						<div>
 							<p>Футболка @Model[j].Name</p>
 							<p>@Model[j].Discount</p>

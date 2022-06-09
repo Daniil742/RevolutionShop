@@ -66,5 +66,15 @@ namespace RevolutionShopWebApp.Controllers
 		{
 			return View();
 		}
+
+		/// <summary>
+		/// Конкретный товар.
+		/// </summary>
+		/// <returns> Страница с подробной инфомацией о товаре. </returns>
+		public IActionResult ProductPage(int id)
+		{
+			var product = _dataModel.Get(id);
+			return View(product);
+		}
 	}
 }
