@@ -10,7 +10,7 @@
 		<div class="toppanel">
 			<h1>Футболки</h1>
 		</div>
-		<table>
+		<table class="products">
 		@if (Model.Count < 4)
 		{
 			<tr>
@@ -58,7 +58,7 @@
 				<tr>
 				@for (var j = index; j < count; j++)
 				{
-					<td>
+					<td onclick="location.href='@Url.Action("Index", "Home")'">
 						<div>
 							<p>Футболка @Model[j].Name</p>
 							<p>@Model[j].Discount</p>
