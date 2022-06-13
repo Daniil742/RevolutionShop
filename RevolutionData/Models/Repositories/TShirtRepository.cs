@@ -2,19 +2,18 @@
 using RevolutionData.Models.DB;
 using RevolutionData.Models.Entities;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevolutionData.Models
+namespace RevolutionData.Models.Repositories
 {
-	public class DataModel : IDataModel
+	public class TShirtRepository : IDataModel<TShirt>
 	{
 		private readonly RevolutionShopDbContext _context;
 
-		public DataModel(RevolutionShopDbContext context)
+		public TShirtRepository(RevolutionShopDbContext context)
 		{
 			_context = context;
 		}

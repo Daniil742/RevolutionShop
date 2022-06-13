@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RevolutionData.Interfaces;
 using RevolutionData.Models.Entities;
+using RevolutionData.Models.Repositories;
 
 namespace RevolutionShopWebApp.Controllers
 {
 	public class ShopController : Controller
 	{
-		private readonly IDataModel _dataModel;
+		private readonly IUnitOfWork _unitOfWork;
 
-		public ShopController(IDataModel dataModel)
+		public ShopController(IUnitOfWork unitOfWork)
 		{
-			_dataModel = dataModel;
+			_unitOfWork = unitOfWork;
 		}
 
 		/// <summary>
@@ -19,7 +20,8 @@ namespace RevolutionShopWebApp.Controllers
 		/// <returns> Страница с товарами категории "Футболки". </returns>
 		public IActionResult TShirtPage()
 		{
-			return View(_dataModel.GetAll());
+			var tShirts = _unitOfWork.TShirts.GetAll();
+			return View(tShirts);
 		}
 
 		/// <summary>
@@ -73,7 +75,7 @@ namespace RevolutionShopWebApp.Controllers
 		/// <returns> Страница с подробной инфомацией о товаре. </returns>
 		public IActionResult ProductPage(int id)
 		{
-			var product = _dataModel.Get(id);
+			var product = _unitOfWork.TShirts.Get(id);
 			return View(product);
 		}
 	}

@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace RevolutionData.Interfaces
 {
-	public interface IDataModel<T> where T : class
+	public interface IUnitOfWork : IDisposable
 	{
-		IEnumerable<T> GetAll();
-
-		T Get(int id);
+		IDataModel<TShirt> TShirts { get; }
+		void Save();
 	}
 }
