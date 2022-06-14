@@ -16,12 +16,21 @@ namespace RevolutionShopWebApp.Controllers
 			_signInManager = signInManager;
 		}
 
+		/// <summary>
+		/// Регистрация.
+		/// </summary>
+		/// <returns></returns>
 		[HttpGet]
 		public IActionResult RegistrationPage()
 		{
 			return View();
 		}
 
+		/// <summary>
+		/// Регистрация.
+		/// </summary>
+		/// <param name="model"></param>
+		/// <returns></returns>
 		[HttpPost]
 		public async Task<IActionResult> RegistrationPage(RegisterViewModel model)
 		{
@@ -61,21 +70,49 @@ namespace RevolutionShopWebApp.Controllers
 		}
 
 		/// <summary>
-		/// Регистрация.
-		/// </summary>
-		/// <returns> Страница регистрации. </returns>
-		//public IActionResult RegistrationPage()
-		//{
-		//	return View();
-		//}
-
-		/// <summary>
 		/// Авторизация.
 		/// </summary>
 		/// <returns> Страница авторизации. </returns>
-		public IActionResult AuthorizationPage()
+		[HttpGet]
+		public IActionResult AuthorizationPage(string returnUrl = null)
 		{
-			return View();
+			return View(new LoginViewModel { ReturnUrl = returnUrl });
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> AuthorizationPage(LoginViewModel model)
+		{
+			if (ModelState.IsValid)
+			{
+				var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+
+				if (result.Succeeded)
+				{
+					if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+					{
+						return Redirect(model.ReturnUrl);
+					}
+					else
+					{
+						return RedirectToAction("Index", "Home");
+					}
+				}
+				else
+				{
+					ModelState.AddModelError("", "Неправильный логин или пароль");
+				}
+			}
+
+			return View(model);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Logout()
+		{
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }

@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace RevolutionData.ViewModel
 {
-	public class RegisterViewModel
+	public class LoginViewModel
 	{
-		/// <summary>
-		/// Имя.
-		/// </summary>
-		[Required]
-		[Display(Name = "Имя")]
-		public string UserName { get; set; }
 		/// <summary>
 		/// Почтовый адрес для входа.
 		/// </summary>
@@ -29,18 +23,13 @@ namespace RevolutionData.ViewModel
 		[Display(Name = "Пароль")]
 		public string Password { get; set; }
 		/// <summary>
-		/// Подтверждение пароля.
+		/// 
 		/// </summary>
-		[Required]
-		[Compare("Password", ErrorMessage = "Пароли не совпадают")]
-		[DataType(DataType.Password)]
-		[Display(Name = "Повторите пароль")]
-		public string PasswordConfirm { get; set; }
+		[Display(Name = "Запомнить?")]
+		public bool RememberMe { get; set; }
 		/// <summary>
-		/// Подтверждение адреса електронной почты.
+		/// 
 		/// </summary>
-		//[Required]
-		//[Display(Name = "Email")]
-		//public bool EmailConfirmed { get; set; } = false;
+		public string ReturnUrl { get; set; }
 	}
 }
