@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RevolutionData.ViewModel.RegisterViewModel
+@{
 	ViewBag.Title = "Регистрация";
 }
 
@@ -6,19 +7,31 @@
 <html>
 	<body>
 		<h2>Регистрация</h2>
-		<div>
-			<form>
-				<label>Имя</label>
-				<input />
-
-				<label>Email</label>
-				<input type="email"/>
-
-				<label>Пароль</label>
-				<input type="password" />
-
-				<button type="submit">Зарегистрироваться</button>
-			</form>
-		</div>
+		<form method="post" asp-controller="Account" asp-action="RegistrationPage">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="UserName"></label><br />
+                <input asp-for="UserName" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div>
+                <label asp-for="Email"></label><br />
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div>
+                <label asp-for="Password"></label><br />
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div>
+                <label asp-for="PasswordConfirm"></label><br />
+                <input asp-for="PasswordConfirm" />
+                <span asp-validation-for="PasswordConfirm"></span>
+            </div>
+            <div>
+                <input type="submit" value="Регистрация" />
+            </div>
+        </form>
 	</body>
 </html>
