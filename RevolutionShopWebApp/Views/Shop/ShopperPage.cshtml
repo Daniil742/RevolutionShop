@@ -1,4 +1,6 @@
-﻿@{
+﻿@using RevolutionData.Models.Entities
+@model List<Shopper>;
+@{
 	ViewBag.Title = "Шопперы";
 }
 
@@ -6,7 +8,77 @@
 <html>
 	<body>
 		<div class="toppanel">
-			<h1>Шопперы</h1>
+			<h1>Шоперы</h1>
 		</div>
-	</body>
+		<table class="products">
+		@if (Model.Count < 4)
+		{
+			<tr>
+			@for (var i = 0; i < Model.Count; i++)
+			{
+				<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = Model[i].Id })'">
+					<div>
+						<p>Шопер @Model[i].Name</p>
+						<p>@Model[i].Discount</p>
+						<p>@Model[i].Price руб.</p>
+					</div>
+				</td>
+			}
+			</tr>
+		}
+		else if (Model.Count % 4 == 0)
+		{
+			var count = 4;
+			var index = 0;
+			for (var i = 0; i < (Model.Count / 4); i++)
+			{
+				<tr>
+				@for (var j = index; j < count; j++)
+				{
+					<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = Model[j].Id })'">
+						<div>
+							<p>Шопер @Model[j].Name</p>
+							<p>@Model[j].Discount</p>
+							<p>@Model[j].Price руб.</p>
+						</div>
+					</td>
+				}
+				</tr>
+				count += 4;
+				index += 4;
+			}
+		}
+		else 
+		{
+			var helperCount = Model.Count;
+			var count = 4;
+			var index = 0;
+			for (var i = 0; i <= Model.Count / 4; i++)
+			{
+				<tr>
+				@for (var j = index; j < count; j++)
+				{
+					<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = Model[j].Id })'">
+						<div>
+							<p>Шопер @Model[j].Name</p>
+							<p>@Model[j].Discount</p>
+							<p>@Model[j].Price руб.</p>
+						</div>
+					</td>
+				}
+				</tr>
+				@if (helperCount / 4 > 1)
+				{
+					helperCount -= 4;
+					count += 4;
+				}
+				else
+				{
+					count += helperCount % 4;
+				}
+				index += 4;
+			}
+		}
+	</table>
+</body>
 </html>

@@ -67,6 +67,24 @@ namespace RevolutionData.Models.DB
 
 				context.SaveChanges();
 			}
+
+			if (!context.Shoppers.Any())
+			{
+				context.Shoppers.AddRange(new List<Shopper>
+				{
+					new Shopper
+					{
+						Name = "TestName6",
+						Price = 1000.00M,
+						Discount = 23,
+						Size = "XL",
+						Count = 100,
+						Description = "100% хлопок"
+					}
+				});
+
+				context.SaveChanges();
+			}
 		}
 	}
 }

@@ -14,6 +14,7 @@ namespace RevolutionData.Models.Repositories
 		private bool _disposed = false;
 		private readonly RevolutionShopDbContext _context;
 		private TShirtRepository? _tShirtRepository;
+		private ShopperRepository? _shopperRepository;
 
 		public UnitOfWork(RevolutionShopDbContext context)
 		{
@@ -30,6 +31,19 @@ namespace RevolutionData.Models.Repositories
 				}
 
 				return _tShirtRepository;
+			}
+		}
+
+		public IDataModel<Shopper> Shoppers
+		{
+			get
+			{
+				if (_shopperRepository == null)
+				{
+					_shopperRepository = new ShopperRepository(_context);
+				}
+
+				return _shopperRepository;
 			}
 		}
 

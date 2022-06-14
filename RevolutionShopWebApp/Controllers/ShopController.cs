@@ -66,16 +66,27 @@ namespace RevolutionShopWebApp.Controllers
 		/// <returns> Страница с товарами категории "Шопперы". </returns>
 		public IActionResult ShopperPage()
 		{
-			return View();
+			var shoppers = _unitOfWork.Shoppers.GetAll();
+			return View(shoppers);
 		}
 
 		/// <summary>
-		/// Конкретный товар.
+		/// Конкретная футболка.
 		/// </summary>
-		/// <returns> Страница с подробной инфомацией о товаре. </returns>
-		public IActionResult ProductPage(int id)
+		/// <returns> Страница с подробной инфомацией о футболке. </returns>
+		public IActionResult TShirtDetailPage(int id)
 		{
 			var product = _unitOfWork.TShirts.Get(id);
+			return View(product);
+		}
+
+		/// <summary>
+		/// Конкретный шоппер.
+		/// </summary>
+		/// <returns> Страница с подробной инфомацией о шоппере. </returns>
+		public IActionResult ShopperDetailPage(int id)
+		{
+			var product = _unitOfWork.Shoppers.Get(id);
 			return View(product);
 		}
 	}

@@ -22,6 +22,11 @@ namespace RevolutionData.Models.DB
 		public DbSet<TShirt> TShirts { get; set; }
 
 		/// <summary>
+		/// Отражение талицы БД Shoppers на свойство DbSet.
+		/// </summary>
+		public DbSet<Shopper> Shoppers { get; set; }
+
+		/// <summary>
 		/// Добавление настроек конфигурации.
 		/// </summary>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
