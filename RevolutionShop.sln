@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevolutionData", "Revolutio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevolutionShopWebApp", "RevolutionShopWebApp\RevolutionShopWebApp.csproj", "{6301F0D5-B7EB-4DEF-A9C6-9F9655DB2873}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAssistants", "AppAssistants\AppAssistants.csproj", "{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppAssistants", "AppAssistants\AppAssistants.csproj", "{496D4672-A81B-46AD-B69A-13C5C6B3E9DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
