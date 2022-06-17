@@ -95,7 +95,7 @@ namespace RevolutionShopWebApp.Controllers
 					}
 					else
 					{
-						return RedirectToAction("AuthorizationPage", "Account");
+						return RedirectToAction("AccountPage", "Account");
 					}
 				}
 				else

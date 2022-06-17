@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model RevolutionData.ViewModel.LoginViewModel
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -55,18 +56,52 @@
                 <a href="~/Home/Contact">Контакты</a>
             </li>
             <li>
-                <a href="~/Account/AccountPage">Личный кабинет()</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="~/Account/AccountPage">Личный кабинет()</a>
+                }
+                else
+                {
+                    <a href="#blackout">Личный кабинет</a>
+                }
             </li>
             <li>
                 <a>Корзина()</a>
             </li>
             <li>
-                <a href="#blackout">Ссылки()</a>
+                <a href="#blackoutLinks">Ссылки()</a>
             </li>
         </ul>
     </nav>
 
-    <div id="blackout" class="links">
+    <div id="blackout" class="log">
+        <div>
+            <a href="#close" title="Закрыть" class="close">X</a>
+            <h2>Авторизация</h2>
+		    <form method="post" asp-controller="Account" asp-action="AuthorizationPage">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <label asp-for="Email"></label><br />
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div>
+                    <label asp-for="Password"></label><br />
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div>
+                    <label asp-for="RememberMe"></label><br />
+                    <input asp-for="RememberMe" />
+                </div>
+                <div>
+                    <input type="submit" value="Войти" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="blackoutLinks" class="links">
         <div>
             <a href="#close" title="Закрыть" class="close">X</a>
             <a>Ссылка на вк</a>
