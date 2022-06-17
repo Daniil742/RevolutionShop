@@ -5,10 +5,22 @@
 <!DOCTYPE html>
 <html>
 	<body>
+	@if (User.Identity.IsAuthenticated)
+	{
 		<h2>Личный кабинет</h2>
-		<button>Войти</button>
-		<button>Зарегистрироваться</button>
+		<p>@User.Identity.Name</p>
+		<p>Есть другой аккаунт?</p>
+		<form method="post" asp-controller="Account" asp-action="Logout">
+			<input type="submit" value="Выход" />
+		</form>
+	}
+	else
+	{
+		<h2>Личный кабинет</h2>
+		@*<button>Войти</button>
+		<button>Зарегистрироваться</button>*@
 		<a href='@Url.Action("AuthorizationPage", "Account")'>Войти</a>
-		<a href='@Url.Action("RegistrationPage", "Account")'>Зарегистрироваться</a>
+		<a href='@Url.Action("RegistrationPage", "Account")'>Зарегистрироваться</a>	
+	}
 	</body>
 </html>

@@ -74,7 +74,7 @@ namespace RevolutionShopWebApp.Controllers
 		/// </summary>
 		/// <returns> Страница авторизации. </returns>
 		[HttpGet]
-		public IActionResult AuthorizationPage(string returnUrl = null)
+		public IActionResult AuthorizationPage(string returnUrl = "")
 		{
 			return View(new LoginViewModel { ReturnUrl = returnUrl });
 		}
@@ -95,7 +95,7 @@ namespace RevolutionShopWebApp.Controllers
 					}
 					else
 					{
-						return RedirectToAction("Index", "Home");
+						return RedirectToAction("AuthorizationPage", "Account");
 					}
 				}
 				else

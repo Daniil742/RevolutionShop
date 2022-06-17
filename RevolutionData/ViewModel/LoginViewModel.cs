@@ -30,6 +30,6 @@ namespace RevolutionData.ViewModel
 		/// <summary>
 		/// 
 		/// </summary>
-		public string ReturnUrl { get; set; }
+		public string? ReturnUrl { get; set; }
 	}
 }
