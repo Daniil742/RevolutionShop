@@ -10,14 +10,10 @@ using RevolutionData.Models.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var identityConnection = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSqlServer(identityConnection));
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSqlServer(connection));
 builder.Services.AddIdentity<Account, IdentityRole>()
     .AddEntityFrameworkStores<RevolutionShopDbContext>();
-
-//var connection = builder.Configuration.GetConnectionString("DefaultConnection");
-
-//builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSqlServer(connection));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddMvc();
 

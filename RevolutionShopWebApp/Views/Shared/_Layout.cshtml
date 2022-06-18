@@ -1,5 +1,4 @@
-﻿@model RevolutionData.ViewModel.LoginViewModel
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -62,7 +61,7 @@
                 }
                 else
                 {
-                    <a href="#blackout">Личный кабинет</a>
+                    <a href="~/Account/AuthorizationPage">Личный кабинет</a>
                 }
             </li>
             <li>
@@ -73,34 +72,6 @@
             </li>
         </ul>
     </nav>
-
-    <div id="blackout" class="log">
-        <div>
-            <a href="#close" title="Закрыть" class="close">X</a>
-            <h2>Авторизация</h2>
-            <a>Создать аккаунт</a>
-		    <form method="post" asp-controller="Account" asp-action="AuthorizationPage">
-                <div asp-validation-summary="ModelOnly"></div>
-                <div>
-                    <label asp-for="Email"></label><br />
-                    <input asp-for="Email" />
-                    <span asp-validation-for="Email"></span>
-                </div>
-                <div>
-                    <label asp-for="Password"></label><br />
-                    <input asp-for="Password" />
-                    <span asp-validation-for="Password"></span>
-                </div>
-                <div>
-                    <label asp-for="RememberMe"></label><br />
-                    <input asp-for="RememberMe" />
-                </div>
-                <div>
-                    <input type="submit" value="Войти" />
-                </div>
-            </form>
-        </div>
-    </div>
 
     <div id="blackoutLinks" class="links">
         <div>

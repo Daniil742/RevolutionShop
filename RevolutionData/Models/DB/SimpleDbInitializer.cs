@@ -11,7 +11,7 @@ namespace RevolutionData.Models.DB
 	{
 		public static void Initialize(RevolutionShopDbContext context)
 		{
-			context.Database.EnsureDeleted();
+			//context.Database.EnsureDeleted();
 			context.Database.EnsureCreated();
 
 			if (!context.TShirts.Any())

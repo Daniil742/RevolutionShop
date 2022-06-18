@@ -47,7 +47,7 @@ namespace RevolutionShopWebApp.Controllers
 				if (result.Succeeded)
 				{
 					await _signInManager.SignInAsync(user, false);
-					return RedirectToAction("Index", "Home");
+					return RedirectToAction("AccountPage", "Account");
 				}
 				else
 				{

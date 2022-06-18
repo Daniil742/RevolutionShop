@@ -79,7 +79,8 @@ namespace RevolutionShopWebApp.Controllers
 		public IActionResult TShirtDetailPage(int id)
 		{
 			var product = _unitOfWork.TShirts.Get(id);
-			return View(product);
+			ViewBag.TShirt = product;
+			return View();
 		}
 
 		/// <summary>
@@ -89,7 +90,8 @@ namespace RevolutionShopWebApp.Controllers
 		public IActionResult ShopperDetailPage(int id)
 		{
 			var product = _unitOfWork.Shoppers.Get(id);
-			return View(product);
+			ViewBag.Shopper = product;
+			return View();
 		}
 	}
 }

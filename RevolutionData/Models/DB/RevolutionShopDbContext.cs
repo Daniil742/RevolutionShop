@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RevolutionData.Models.DB
 {
-	public class RevolutionShopDbContext : IdentityDbContext<Account>//DbContext
+	public class RevolutionShopDbContext : IdentityDbContext<Account>
 	{
 		public RevolutionShopDbContext(DbContextOptions<RevolutionShopDbContext> options)
 			: base(options) => SimpleDbInitializer.Initialize(this);
@@ -30,6 +30,7 @@ namespace RevolutionData.Models.DB
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<TShirt>().ToTable("TShirt_Table");
+			modelBuilder.Entity<Shopper>().ToTable("Shopper_Table");
 			base.OnModelCreating(modelBuilder);
 		}
 	}
