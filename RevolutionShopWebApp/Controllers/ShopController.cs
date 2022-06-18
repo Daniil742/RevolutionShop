@@ -21,7 +21,8 @@ namespace RevolutionShopWebApp.Controllers
 		public IActionResult TShirtPage()
 		{
 			var tShirts = _unitOfWork.TShirts.GetAll();
-			return View(tShirts);
+			ViewBag.TShirts = tShirts;
+			return View();
 		}
 
 		/// <summary>
@@ -67,7 +68,8 @@ namespace RevolutionShopWebApp.Controllers
 		public IActionResult ShopperPage()
 		{
 			var shoppers = _unitOfWork.Shoppers.GetAll();
-			return View(shoppers);
+			ViewBag.Shoppers = shoppers;
+			return View();
 		}
 
 		/// <summary>

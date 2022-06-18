@@ -1,5 +1,4 @@
 ﻿@using RevolutionData.Models.Entities
-@model List<Shopper>;
 @{
 	ViewBag.Title = "Шопперы";
 }
@@ -11,35 +10,35 @@
 			<h1>Шоперы</h1>
 		</div>
 		<table class="products">
-		@if (Model.Count < 4)
+		@if (ViewBag.Shoppers.Count < 4)
 		{
 			<tr>
-			@for (var i = 0; i < Model.Count; i++)
+			@for (var i = 0; i < ViewBag.Shoppers.Count; i++)
 			{
-				<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = Model[i].Id })'">
+				<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = ViewBag.Shoppers[i].Id })'">
 					<div>
-						<p>Шопер @Model[i].Name</p>
-						<p>@Model[i].Discount</p>
-						<p>@Model[i].Price руб.</p>
+						<p>Шопер @ViewBag.Shoppers[i].Name</p>
+						<p>@ViewBag.Shoppers[i].Discount</p>
+						<p>@ViewBag.Shoppers[i].Price руб.</p>
 					</div>
 				</td>
 			}
 			</tr>
 		}
-		else if (Model.Count % 4 == 0)
+		else if (ViewBag.Shoppers.Count % 4 == 0)
 		{
 			var count = 4;
 			var index = 0;
-			for (var i = 0; i < (Model.Count / 4); i++)
+			for (var i = 0; i < (ViewBag.Shoppers.Count / 4); i++)
 			{
 				<tr>
 				@for (var j = index; j < count; j++)
 				{
-					<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = Model[j].Id })'">
+					<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = ViewBag.Shoppers[j].Id })'">
 						<div>
-							<p>Шопер @Model[j].Name</p>
-							<p>@Model[j].Discount</p>
-							<p>@Model[j].Price руб.</p>
+							<p>Шопер @ViewBag.Shoppers[j].Name</p>
+							<p>@ViewBag.Shoppers[j].Discount</p>
+							<p>@ViewBag.Shoppers[j].Price руб.</p>
 						</div>
 					</td>
 				}
@@ -50,19 +49,19 @@
 		}
 		else 
 		{
-			var helperCount = Model.Count;
+			var helperCount = ViewBag.Shoppers.Count;
 			var count = 4;
 			var index = 0;
-			for (var i = 0; i <= Model.Count / 4; i++)
+			for (var i = 0; i <= ViewBag.Shoppers.Count / 4; i++)
 			{
 				<tr>
 				@for (var j = index; j < count; j++)
 				{
-					<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = Model[j].Id })'">
+					<td onclick="location.href='@Url.Action("ShopperDetailPage", "Shop", new { id = ViewBag.Shoppers[j].Id })'">
 						<div>
-							<p>Шопер @Model[j].Name</p>
-							<p>@Model[j].Discount</p>
-							<p>@Model[j].Price руб.</p>
+							<p>Шопер @ViewBag.Shoppers[j].Name</p>
+							<p>@ViewBag.Shoppers[j].Discount</p>
+							<p>@ViewBag.Shoppers[j].Price руб.</p>
 						</div>
 					</td>
 				}

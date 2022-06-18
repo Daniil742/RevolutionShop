@@ -18,7 +18,7 @@ namespace RevolutionData.Models.Repositories
 			_context = context;
 		}
 
-		public IEnumerable<TShirt> GetAll()
+		public List<TShirt> GetAll()
 		{
 			return _context.TShirts.ToList();
 		}

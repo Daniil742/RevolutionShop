@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using RevolutionData.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,10 @@ using System.Threading.Tasks;
 
 namespace RevolutionData.Models.DB
 {
-	public class RevolutionShopDbContext : DbContext
+	public class RevolutionShopDbContext : IdentityDbContext<Account>//DbContext
 	{
 		public RevolutionShopDbContext(DbContextOptions<RevolutionShopDbContext> options)
-			: base(options)
-		{
-			SimpleDbInitializer.Initialize(this);
-		}
+			: base(options) => SimpleDbInitializer.Initialize(this);
 
 		/// <summary>
 		/// Отражение талицы БД TShirts на свойство DbSet.
@@ -31,11 +29,8 @@ namespace RevolutionData.Models.DB
 		/// </summary>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<TShirt>(builder =>
-			{
-				builder.ToTable("TShirts");
-				builder.HasKey(x => x.Id);
-			});
+			modelBuilder.Entity<TShirt>().ToTable("TShirt_Table");
+			base.OnModelCreating(modelBuilder);
 		}
 	}
 }

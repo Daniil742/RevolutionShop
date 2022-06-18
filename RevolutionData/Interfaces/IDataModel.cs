@@ -9,7 +9,7 @@ namespace RevolutionData.Interfaces
 {
 	public interface IDataModel<T> where T : class
 	{
-		IEnumerable<T> GetAll();
+		List<T> GetAll();
 
 		T Get(int id);
 	}

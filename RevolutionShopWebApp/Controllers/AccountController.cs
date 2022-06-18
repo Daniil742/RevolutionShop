@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using RevolutionData.Models.Entities;
 using RevolutionData.ViewModel;
-using RevolutionShopWebApp.Models.Entities;
 
 namespace RevolutionShopWebApp.Controllers
 {
 	public class AccountController : Controller
 	{
-		private readonly UserManager<User> _userManager;
-		private readonly SignInManager<User> _signInManager;
+		private readonly UserManager<Account> _userManager;
+		private readonly SignInManager<Account> _signInManager;
 
-		public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+		public AccountController(UserManager<Account> userManager, SignInManager<Account> signInManager)
 		{
 			_userManager = userManager;
 			_signInManager = signInManager;
@@ -36,7 +36,7 @@ namespace RevolutionShopWebApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				User user = new User
+				Account user = new Account
 				{
 					UserName = model.UserName,
 					Email = model.Email

@@ -6,19 +6,18 @@ using RevolutionData.Models;
 using RevolutionData.Models.DB;
 using RevolutionData.Models.Entities;
 using RevolutionData.Models.Repositories;
-using RevolutionShopWebApp.Models.Entities;
-using RevolutionShopWebApp.Models.DB;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-var identityConnection = builder.Configuration.GetConnectionString("IdentityConnection");
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(identityConnection));
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>();
+var identityConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSqlServer(identityConnection));
+builder.Services.AddIdentity<Account, IdentityRole>()
+    .AddEntityFrameworkStores<RevolutionShopDbContext>();
 
-var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+//var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSqlServer(connection));
+//builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSqlServer(connection));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddMvc();
 
