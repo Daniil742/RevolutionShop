@@ -1,0 +1,25 @@
+﻿@using RevolutionData.Models.Entities
+@model List<Cart>
+@{
+    ViewBag.Title = "Корзина";
+}
+
+<h1>Корзина</h1>
+@if(Model.Count > 0)
+{
+    for (var i = 0; i < Model.Count; i++)
+    {
+        <p>@Model[i].ProductId</p>
+        <p>Количество @Model[i].Quantity</p>
+    }
+    <button onclick="location.href='@Url.Action("CreateOrder", "Cart")'">Оформить заказ</button>
+}
+else
+{
+    <p>Корзина пуста</p>
+}
+@*@for(var i = 0; i < ViewBag.Cart.Count; i++)
+{
+    <p>@ViewBag.Cart[i].ProductId</p>
+    <p>Количество @ViewBag.Cart[i].Quantity</p>
+}*@

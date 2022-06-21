@@ -1,6 +1,6 @@
 ﻿@using RevolutionData.Models.Entities
 @{
-	ViewBag.Title = "Худи";
+	ViewBag.Title = "Футболка";
 }
 
 <!DOCTYPE html>
@@ -11,31 +11,35 @@
 				<p>Скролящиеся картинки</p>
 			</div>
 			<div class="mainInfo">
-				<h1>Футболка @ViewBag.TShirt.Name</h1>
-			@if (ViewBag.TShirt.Discount > 0)
-			{
-				<p>@(ViewBag.TShirt.Price * (1 - ViewBag.TShirt.Discount / 100)) руб.</p>
-				<del>@ViewBag.TShirt.Price руб.</del>
-				<p>Скидка @ViewBag.TShirt.Discount%</p>
-			}
-			else
-			{
-				<p>@ViewBag.TShirt.Price руб.</p>
-			}
-				<p>Размер</p>
-				<label><input type="radio"/>@ViewBag.TShirt.Size</label>
-			@if (ViewBag.TShirt.Count > 0)
-			{
-				<p>В наличии</p>
-			}
-			else
-			{
-				<p>Нет в наличии</p>
-			}
-				<button>В корзину</button>
-				<p>Информация о товаре</p>
-				<p>@ViewBag.TShirt.Description</p>
-		</div>
+				<form method="post" asp-controller="Cart" asp-action="AddToCart">
+					<h1>Футболка @ViewBag.TShirt.Name</h1>
+					@if (ViewBag.TShirt.Discount > 0)
+					{
+						<p>@(ViewBag.TShirt.Price * (1 - ViewBag.TShirt.Discount / 100)) руб.</p>
+						<del>@ViewBag.TShirt.Price руб.</del>
+						<p>Скидка @ViewBag.TShirt.Discount%</p>
+					}
+					else
+					{
+						<p>@ViewBag.TShirt.Price руб.</p>
+					}
+						<p>Размер</p>
+						<label><input type="radio"/>@ViewBag.TShirt.Size</label>
+					@if (ViewBag.TShirt.Count > 0)
+					{
+						<p>В наличии</p>
+					}
+					else
+					{
+						<p>Нет в наличии</p>
+					}
+						<button onclick="location.href='@Url.Action("AddToCart", "Cart", new { id = ViewBag.TShirt.Id })'">В корзину</button>
+						<input type="submit" value="Добавить в корзину"/>
+						<p>Информация о товаре</p>
+						<p>@ViewBag.TShirt.Description</p>
+						<p>@ViewBag.TShirt.Id</p>
+				</form>
+			</div>
 		</div>
 	</body>
 </html>

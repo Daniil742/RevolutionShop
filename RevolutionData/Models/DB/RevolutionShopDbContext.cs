@@ -25,12 +25,21 @@ namespace RevolutionData.Models.DB
 		public DbSet<Shopper> Shoppers { get; set; }
 
 		/// <summary>
+		/// Отображение таблицы БД Carts на свойство DbSet.
+		/// </summary>
+		public DbSet<Cart> Carts { get; set; }
+
+		public DbSet<Order> Orders { get; set; }
+
+		/// <summary>
 		/// Добавление настроек конфигурации.
 		/// </summary>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<TShirt>().ToTable("TShirt_Table");
 			modelBuilder.Entity<Shopper>().ToTable("Shopper_Table");
+			modelBuilder.Entity<Cart>().ToTable("Cart_Table");
+			modelBuilder.Entity<Order>().ToTable("Order_Table");
 			base.OnModelCreating(modelBuilder);
 		}
 	}

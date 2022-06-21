@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RevolutionData.Models.Entities.Account
+@{
 	ViewBag.Title = "Личный кабинет";
 }
 
@@ -7,20 +8,21 @@
 	<body>
 	@if (User.Identity.IsAuthenticated)
 	{
-		<h2>Личный кабинет</h2>
-		<p>@User.Identity.Name</p>
-		<p>Есть другой аккаунт?</p>
-		<form method="post" asp-controller="Account" asp-action="Logout">
-			<input type="submit" value="Выход" />
-		</form>
-	}
-	else
-	{
-		<h2>Личный кабинет</h2>
-		@*<button>Войти</button>
-		<button>Зарегистрироваться</button>*@
-		<a href='@Url.Action("AuthorizationPage", "Account")'>Войти</a>
-		<a href='@Url.Action("RegistrationPage", "Account")'>Зарегистрироваться</a>	
+		<div>
+			<h2>Личный кабинет</h2>
+			<p>@Model.UserName</p>
+			<p>@Model.Email</p>
+			<p>Есть другой аккаунт?</p>
+			<h3>Корзина</h3>
+			<p>Ваша корзина пуста</p>
+			<form method="post" asp-controller="Account" asp-action="Logout">
+				<input type="submit" value="Выход" />
+			</form>
+		</div>
+		<div>
+			<h2>Заказы</h2>
+			<p>У вас пока нет заказов. Как только разместите заказ, он появится на этой странице.</p>
+		</div>
 	}
 	</body>
 </html>

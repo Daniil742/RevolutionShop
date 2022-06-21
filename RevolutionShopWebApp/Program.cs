@@ -15,6 +15,7 @@ builder.Services.AddDbContext<RevolutionShopDbContext>(options => options.UseSql
 builder.Services.AddIdentity<Account, IdentityRole>()
     .AddEntityFrameworkStores<RevolutionShopDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddMvc();
 
 var app = builder.Build();

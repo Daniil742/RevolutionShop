@@ -36,7 +36,7 @@ namespace RevolutionShopWebApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				Account user = new Account
+				var user = new Account
 				{
 					UserName = model.UserName,
 					Email = model.Email
@@ -63,10 +63,11 @@ namespace RevolutionShopWebApp.Controllers
 		/// <summary>
 		/// Личный кабинет.
 		/// </summary>
-		/// <returns> Страница с входом или регистрацией, если пользователь не авторизован. </returns>
-		public IActionResult AccountPage()
+		/// <returns> Страница с информацией пользователя. </returns>
+		public async Task<IActionResult> AccountPage()
 		{
-			return View();
+			var u = await _userManager.GetUserAsync(User);
+			return View(u);
 		}
 
 		/// <summary>

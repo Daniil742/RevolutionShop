@@ -64,9 +64,12 @@
                     <a href="~/Account/AuthorizationPage">Личный кабинет</a>
                 }
             </li>
-            <li>
-                <a>Корзина()</a>
-            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>
+                    <a href="~/Cart/Index">Корзина()</a>
+                </li>
+            }
             <li>
                 <a href="#blackoutLinks">Ссылки()</a>
             </li>
