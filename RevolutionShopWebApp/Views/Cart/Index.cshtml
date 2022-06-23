@@ -1,5 +1,5 @@
 ﻿@using RevolutionData.Models.Entities
-@*@model List<Cart>*@
+@model List<CartItem>
 @{
     ViewBag.Title = "Корзина";
 }
@@ -7,19 +7,18 @@
 <!DOCTYPE html>
 <html>
 	<body>
-    @if(ViewBag.Cart != null)
+    @if(Model != null)
     {
-        <p>@ViewBag.Cart.Count</p>
-        <table>
-        @for(var i = 0; i < ViewBag.Cart.Count; i++)
+        <p>@Model.Count</p>
+        @for(var i = 0; i < Model.Count; i++)
         {
-            <tr>
-                <td>Футболка @ViewBag.Cart[i].TShirt.Name</td>
-                <td>Цена @ViewBag.Cart[i].TShirt.Price</td>
-                <td>Количество @ViewBag.Cart[i].Quantity</td>
-            </tr>
+            <div>
+                <p>Футболка @Model[i].TShirt.Name</p>
+                <p>Цена @Model[i].TShirt.Price</p>
+                <p>Количество @Model[i].Quantity</p>
+                <button>X</button>
+            </div>
         }
-        </table>
     }
     else
     {

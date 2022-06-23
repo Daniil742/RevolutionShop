@@ -26,9 +26,9 @@ namespace RevolutionShopWebApp.Controllers
 		public IActionResult Index()
 		{
 			var cart = SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart");
-			ViewBag.Cart = cart;
+			//ViewBag.Cart = cart;
 
-			return View();
+			return View(cart);
 		}
 
 		public IActionResult AddToCart(int id)
@@ -74,18 +74,16 @@ namespace RevolutionShopWebApp.Controllers
 
 		private int IsExist(int id)
 		{
-			var index = -1;
 			List<CartItem> cart = SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart");
 			for (var i = 0; i < cart.Count; i++)
 			{
 				if (cart[i].TShirt.Id.Equals(id))
 				{
-					index = i;
-					break;
+					return i;
 				}
 			}
 
-			return index;
+			return -1;
 		}
 	}
 }

@@ -11,7 +11,7 @@
 				<p>Скролящиеся картинки</p>
 			</div>
 			<div class="mainInfo">
-				<form method="post" asp-controller="Cart" asp-action="AddToCart">
+				@*<form method="post" asp-controller="Cart" asp-action="AddToCart">*@
 					<h1>Футболка @ViewBag.TShirt.Name</h1>
 					@if (ViewBag.TShirt.Discount > 0)
 					{
@@ -34,11 +34,11 @@
 						<p>Нет в наличии</p>
 					}
 						<button onclick="location.href='@Url.Action("AddToCart", "Cart", new { id = ViewBag.TShirt.Id })'">В корзину</button>
-						<input type="submit" value="Добавить в корзину"/>
+						@*<input type="submit" value="Добавить в корзину"/>*@
 						<p>Информация о товаре</p>
 						<p>@ViewBag.TShirt.Description</p>
 						<p>@ViewBag.TShirt.Id</p>
-				</form>
+				@*</form>*@
 			</div>
 		</div>
 	</body>
