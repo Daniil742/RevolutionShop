@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RevolutionData.Interfaces;
 using RevolutionData.Models.DB;
 using RevolutionData.Models.Entities;
+using RevolutionShopWebApp.Helpers;
 using System.Security.Claims;
 
 namespace RevolutionShopWebApp.Controllers
@@ -24,49 +25,67 @@ namespace RevolutionShopWebApp.Controllers
 
 		public IActionResult Index()
 		{
-			var account = _userManager.Users.FirstOrDefault(x => x.Id == _contextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-			var products = _context.Carts
-				.Where(x => x.ProductId != 0 && x.Account.Id == account.Id)
-				.ToList();
-			//ViewBag.Cart = products;
-			return View(products);
+			var cart = SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart");
+			ViewBag.Cart = cart;
+
+			return View();
 		}
 
 		public IActionResult AddToCart(int id)
 		{
-			var account = _userManager.Users.FirstOrDefault(x => x.Id == _contextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-			var product = _context.Carts.FirstOrDefault(x => x.ProductId == id && x.Account.Id == account.Id);
-			if (product != null)
+			if (SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart") == null)
 			{
-				product.Quantity += 1;
+				List<CartItem> cart = new List<CartItem>();
+				cart.Add(new CartItem
+				{
+					TShirt = _context.TShirts.FirstOrDefault(x => x.Id == id),
+					Quantity = 1 
+				});
+				SessionHelper.Set(HttpContext.Session, "cart", cart);
 			}
 			else
 			{
-				var cart = new Cart
+				List<CartItem> cart = SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart");
+				var index = IsExist(id);
+
+				if (index != -1)
 				{
-					ProductId = id,
-					Quantity = 1,
-					Account = account
-				};
-				_context.Carts.Add(cart);
+					cart[index].Quantity++;
+				}
+				else
+				{
+					cart.Add(new CartItem
+					{
+						TShirt = _context.TShirts.FirstOrDefault(x => x.Id == id),
+						Quantity = 1
+					});
+				}
+
+				SessionHelper.Set(HttpContext.Session, "cart", cart);
 			}
-			_context.SaveChanges();
 
 			return RedirectToAction("Index");
 		}
 
 		public IActionResult CreateOrder()
 		{
-			var account = _userManager.Users.FirstOrDefault(x => x.Id == _contextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-			var products = _context.Carts
-				.Where(x => x.Account.Id == account.Id)
-				.ToList();
-			for (var i = 0; i < products.Count; i++)
-			{
-				_context.Carts.Remove(products[i]);
-			}
-			_context.SaveChanges();
 			return RedirectToAction("Index");
+		}
+
+		private int IsExist(int id)
+		{
+			var index = -1;
+			List<CartItem> cart = SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart");
+			for (var i = 0; i < cart.Count; i++)
+			{
+				if (cart[i].TShirt.Id.Equals(id))
+				{
+					index = i;
+					break;
+				}
+			}
+
+			return index;
 		}
 	}
 }

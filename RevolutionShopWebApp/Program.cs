@@ -17,10 +17,12 @@ builder.Services.AddIdentity<Account, IdentityRole>()
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddMvc();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+app.UseSession();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
