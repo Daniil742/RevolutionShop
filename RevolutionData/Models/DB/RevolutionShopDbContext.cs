@@ -15,19 +15,19 @@ namespace RevolutionData.Models.DB
 			: base(options) => SimpleDbInitializer.Initialize(this);
 
 		/// <summary>
-		/// Отражение талицы БД TShirts на свойство DbSet.
+		/// Отражение таблицы БД Products на сойство DbSet.
 		/// </summary>
-		public DbSet<TShirt> TShirts { get; set; }
+		public DbSet<Product> Products { get; set; }
 
 		/// <summary>
-		/// Отражение талицы БД Shoppers на свойство DbSet.
+		/// Отражение таблицы БД ProductTypes на свойство DbSet.
 		/// </summary>
-		public DbSet<Shopper> Shoppers { get; set; }
+		public DbSet<ProductType> ProductTypes { get; set; }
 
 		/// <summary>
-		/// Отображение таблицы БД Carts на свойство DbSet.
+		/// Отражение таблицы БД ProductSizes на свойство DbSet.
 		/// </summary>
-		public DbSet<Cart> Carts { get; set; }
+		public DbSet<ProductSize> ProductSizes { get; set; }
 
 		public DbSet<Order> Orders { get; set; }
 
@@ -36,9 +36,9 @@ namespace RevolutionData.Models.DB
 		/// </summary>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<TShirt>().ToTable("TShirt_Table");
-			modelBuilder.Entity<Shopper>().ToTable("Shopper_Table");
-			modelBuilder.Entity<Cart>().ToTable("Cart_Table");
+			modelBuilder.Entity<Product>().ToTable("Product_Table");
+			modelBuilder.Entity<ProductType>().ToTable("ProductType_Table");
+			modelBuilder.Entity<ProductSize>().ToTable("ProductSize_Table");
 			modelBuilder.Entity<Order>().ToTable("Order_Table");
 			base.OnModelCreating(modelBuilder);
 		}

@@ -15,83 +15,25 @@ namespace RevolutionShopWebApp.Controllers
 		}
 
 		/// <summary>
-		/// Футболки.
+		/// 
 		/// </summary>
-		/// <returns> Страница с товарами категории "Футболки". </returns>
-		public IActionResult TShirtPage()
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public IActionResult ProductPage(int id)
 		{
-			var tShirts = _unitOfWork.TShirts.GetAll();
-			ViewBag.TShirts = tShirts;
-			return View();
+			var products = _unitOfWork.Products.GetAllProductsByType(id);
+			return View(products);
 		}
 
 		/// <summary>
-		/// Лонгсливы.
+		/// 
 		/// </summary>
-		/// <returns> Страница с товарами категории "Лонгсливы". </returns>
-		public IActionResult LongsleevePage()
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public IActionResult ProductDetailPage(int id)
 		{
-			return View();
-		}
-
-		/// <summary>
-		/// Худи.
-		/// </summary>
-		/// <returns> Страница с товарами категории "Худи". </returns>
-		public IActionResult HoodiePage()
-		{
-			return View();
-		}
-
-		/// <summary>
-		/// Головные уборы.
-		/// </summary>
-		/// <returns> Страница с товарами категории "Головные уборы". </returns>
-		public IActionResult HeaddressPage()
-		{
-			return View();
-		}
-
-		/// <summary>
-		/// Штаны и шорты.
-		/// </summary>
-		/// <returns> Страница с товарами категории "Брюки и шорты". </returns>
-		public IActionResult PantAndShortPage()
-		{
-			return View();
-		}
-
-		/// <summary>
-		/// Шопперы.
-		/// </summary>
-		/// <returns> Страница с товарами категории "Шопперы". </returns>
-		public IActionResult ShopperPage()
-		{
-			var shoppers = _unitOfWork.Shoppers.GetAll();
-			ViewBag.Shoppers = shoppers;
-			return View();
-		}
-
-		/// <summary>
-		/// Конкретная футболка.
-		/// </summary>
-		/// <returns> Страница с подробной инфомацией о футболке. </returns>
-		public IActionResult TShirtDetailPage(int id)
-		{
-			var product = _unitOfWork.TShirts.Get(id);
-			ViewBag.TShirt = product;
-			return View();
-		}
-
-		/// <summary>
-		/// Конкретный шоппер.
-		/// </summary>
-		/// <returns> Страница с подробной инфомацией о шоппере. </returns>
-		public IActionResult ShopperDetailPage(int id)
-		{
-			var product = _unitOfWork.Shoppers.Get(id);
-			ViewBag.Shopper = product;
-			return View();
+			var product = _unitOfWork.Products.Get(id);
+			return View(product);
 		}
 	}
 }

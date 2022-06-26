@@ -1,16 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RevolutionData.Interfaces;
 
 namespace RevolutionShopWebApp.Controllers
 {
 	public class HomeController : Controller
 	{
+		private readonly IUnitOfWork _unitOfWork;
+
+		public HomeController(IUnitOfWork unitOfWork)
+		{
+			_unitOfWork = unitOfWork;
+		}
+
 		/// <summary>
 		/// Главная.
 		/// </summary>
 		/// <returns> Главная страница магазина. </returns>
 		public IActionResult Index()
 		{
-			return View();
+			var type = _unitOfWork.ProductTypes.GetAll();
+			return View(type);
 		}
 
 		/// <summary>

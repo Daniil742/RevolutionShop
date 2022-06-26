@@ -9,8 +9,8 @@ namespace RevolutionData.Interfaces
 {
 	public interface IUnitOfWork : IDisposable
 	{
-		IDataModel<TShirt> TShirts { get; }
-		IDataModel<Shopper> Shoppers { get; }
+		IDataModel<Product> Products { get; }
+		IDataModel<ProductType> ProductTypes { get; }
 		void Save();
 	}
 }

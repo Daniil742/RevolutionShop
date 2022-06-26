@@ -14,10 +14,10 @@
             @for(var i = 0; i < Model.Count; i++)
             {
                 <div>
-                    <p>Футболка @Model[i].TShirt.Name</p>
-                    <p>Цена @Model[i].TShirt.Price</p>
+                    <p>Футболка @Model[i].Product.Name</p>
+                    <p>Цена @Model[i].Product.Price</p>
                     <p>Количество @Model[i].Quantity</p>
-                    <button onclick="location.href='@Url.Action("RemoveItem", "Cart", new { id = Model[i].TShirt.Id })'">X</button>
+                    <button onclick="location.href='@Url.Action("RemoveItem", "Cart", new { id = Model[i].Product.Id })'">X</button>
                 </div>
             }
         </div>
@@ -30,44 +30,5 @@
     {
         <p>Корзина пуста</p>
     }
-    <table>
-        @*@foreach (var item in ViewBag.Cart)
-        {
-            <tr>
-                <td>@item.</td>
-                <td>@item.Product.Name</td>
-                <td>@item.Product.Price</td>
-                <td>@item.Quantity</td>
-            </tr>
-        }*@
-        </table>
-		@*<div>
-        @if(Model.Count > 0)
-        {
-            <div>
-                <h1>Корзина</h1>
-                <table>
-                    @for (var i = 0; i < Model.Count; i++)
-                    {
-                        <tr>
-                            <td>
-                                <p>@Model[i].ProductName</p>
-                                <p>@Model[i].ProductPrice</p>
-                                <p>Количество @Model[i].Quantity</p>
-                            </td>
-                        </tr>
-                    }
-                </table>
-            </div>
-            <div>
-                <h1>Оформление заказа</h1>
-                <button onclick="location.href='@Url.Action("CreateOrder", "Cart")'">Оформить заказ</button>
-            </div>
-        }
-        else
-        {
-            <p>Корзина пуста</p>
-        }
-        </div>*@
 	</body>
 </html>

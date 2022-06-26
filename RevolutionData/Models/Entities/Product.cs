@@ -7,37 +7,45 @@ using System.Threading.Tasks;
 namespace RevolutionData.Models.Entities
 {
 	/// <summary>
-	/// Шоппер.
+	/// Товар для продажи.
 	/// </summary>
-	public class Shopper
+	public class Product
 	{
 		/// <summary>
-		/// Id.
+		/// Id товара.
 		/// </summary>
 		public int Id { get; set; }
 		/// <summary>
-		/// Название.
+		/// Тип товара.
+		/// </summary>	
+		public int TypeId { get; set; }
+		/// <summary>
+		/// Название товара.
 		/// </summary>
 		public string Name { get; set; }
 		/// <summary>
-		/// Цена.
+		/// Цена товара.
 		/// </summary>
 		public decimal Price { get; set; }
 		/// <summary>
-		/// Скидка, может содержать значение null.
+		/// Скидка на товар.
 		/// </summary>
-		public int? Discount { get; set; }
+		public int Discount { get; set; }
 		/// <summary>
-		/// Размер.
+		/// Размер товара.
 		/// </summary>
-		public string Size { get; set; }
+		public int SizeId { get; set; }
 		/// <summary>
-		/// Количество.
+		/// Количество товара.
 		/// </summary>
 		public int Count { get; set; }
 		/// <summary>
-		/// Описание торава.
+		/// Описание товара.
 		/// </summary>
 		public string Description { get; set; }
+		/// <summary>
+		/// Id типа топара.
+		/// </summary>
+		//public int ProductTypeId { get; set; }
 	}
 }

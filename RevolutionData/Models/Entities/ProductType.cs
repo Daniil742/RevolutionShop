@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RevolutionData.Models.Entities
 {
-	/// <summary>
-	/// Лонгслив.
-	/// </summary>
-	internal class Longsleeve
+	public class ProductType
 	{
+		public int Id { get; set; }
+		public string Name { get; set; }
 	}
 }

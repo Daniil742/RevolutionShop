@@ -13,37 +13,37 @@ namespace RevolutionData.Models.Repositories
 	{
 		private bool _disposed = false;
 		private readonly RevolutionShopDbContext _context;
-		private TShirtRepository? _tShirtRepository;
-		private ShopperRepository? _shopperRepository;
+		private ProductRepository? _productRepository;
+		private ProductTypeRepository? _productTypeRepository;
 
 		public UnitOfWork(RevolutionShopDbContext context)
 		{
 			_context = context;
 		}
 
-		public IDataModel<TShirt> TShirts
+		public IDataModel<Product> Products
 		{
 			get
 			{
-				if (_tShirtRepository == null)
+				if (_productRepository == null)
 				{
-					_tShirtRepository = new TShirtRepository(_context);
+					_productRepository = new ProductRepository(_context);
 				}
 
-				return _tShirtRepository;
+				return _productRepository;
 			}
 		}
 
-		public IDataModel<Shopper> Shoppers
+		public IDataModel<ProductType> ProductTypes
 		{
 			get
 			{
-				if (_shopperRepository == null)
+				if (_productTypeRepository == null)
 				{
-					_shopperRepository = new ShopperRepository(_context);
+					_productTypeRepository = new ProductTypeRepository(_context);
 				}
 
-				return _shopperRepository;
+				return _productTypeRepository;
 			}
 		}
 

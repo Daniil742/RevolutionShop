@@ -1,4 +1,5 @@
 ﻿@using RevolutionData.Models.Entities
+@model Product
 @{
 	ViewBag.Title = "Футболка";
 }
@@ -12,20 +13,20 @@
 			</div>
 			<div class="mainInfo">
 				@*<form method="post" asp-controller="Cart" asp-action="AddToCart">*@
-					<h1>Футболка @ViewBag.TShirt.Name</h1>
-					@if (ViewBag.TShirt.Discount > 0)
+					<h1>Футболка @Model.Name</h1>
+					@if (Model.Discount > 0)
 					{
-						<p>@(ViewBag.TShirt.Price * (1 - ViewBag.TShirt.Discount / 100)) руб.</p>
-						<del>@ViewBag.TShirt.Price руб.</del>
-						<p>Скидка @ViewBag.TShirt.Discount%</p>
+						<p>@(Model.Price * (1 - Model.Discount / 100)) руб.</p>
+						<del>@Model.Price руб.</del>
+						<p>Скидка @Model.Discount%</p>
 					}
 					else
 					{
-						<p>@ViewBag.TShirt.Price руб.</p>
+						<p>@Model.Price руб.</p>
 					}
 						<p>Размер</p>
-						<label><input type="radio"/>@ViewBag.TShirt.Size</label>
-					@if (ViewBag.TShirt.Count > 0)
+						@*<label><input type="radio"/>@Model.Size</label>*@
+					@if (Model.Count > 0)
 					{
 						<p>В наличии</p>
 					}
@@ -33,11 +34,11 @@
 					{
 						<p>Нет в наличии</p>
 					}
-						<button onclick="location.href='@Url.Action("AddToCart", "Cart", new { id = ViewBag.TShirt.Id })'">В корзину</button>
+						<button onclick="location.href='@Url.Action("AddToCart", "Cart", new { id = Model.Id })'">В корзину</button>
 						@*<input type="submit" value="Добавить в корзину"/>*@
 						<p>Информация о товаре</p>
-						<p>@ViewBag.TShirt.Description</p>
-						<p>@ViewBag.TShirt.Id</p>
+						<p>@Model.Description</p>
+						<p>@Model.Id</p>
 				@*</form>*@
 			</div>
 		</div>

@@ -14,75 +14,121 @@ namespace RevolutionData.Models.DB
 			//context.Database.EnsureDeleted();
 			context.Database.EnsureCreated();
 
-			if (!context.TShirts.Any())
+			if (!context.ProductTypes.Any())
 			{
-				context.TShirts.AddRange(new List<TShirt>
+				context.ProductTypes.AddRange(new List<ProductType>
 				{
-					new TShirt
+					new ProductType
 					{
-						Name = "TestName1",
-						Price = 1000.00M,
-						Discount = 23,
-						Size = "XL",
-						Count = 100,
-						Description = "100% хлопок"
+						Name = "Футболки"
 					},
-					new TShirt
+					new ProductType
 					{
-						Name = "TestName2",
-						Price = 9.00M,
-						Discount = 0,
-						Size = "S",
-						Count = 9,
-						Description = "99% хлопок, 1% полиэстер"
+						Name = "Лонгсливы"
+					},new ProductType
+					{
+						Name = "Худи и свитшоты"
 					},
-					new TShirt
+					new ProductType
 					{
-						Name = "TestName3",
-						Price = 79.00M,
-						Discount = 0,
-						Size = "M",
-						Count = 0,
-						Description = "79% хлопок, 21% полиэстер"
+						Name = "Брюки и шорты"
 					},
-					new TShirt
+					new ProductType
 					{
-						Name = "TestName4",
-						Price = 59.00M,
-						Discount = 0,
-						Size = "M",
-						Count = 29,
-						Description = "79% хлопок, 21% полиэстер"
+						Name = "Головные уборы"
 					},
-					new TShirt
+					new ProductType
 					{
-						Name = "TestName5",
-						Price = 39.00M,
-						Discount = 0,
-						Size = "M",
-						Count = 29,
-						Description = "79% хлопок, 21% полиэстер"
+						Name = "Шоперы"
 					}
 				});
 
 				context.SaveChanges();
 			}
 
-			if (!context.Shoppers.Any())
+			if (!context.Products.Any())
 			{
-				context.Shoppers.AddRange(new List<Shopper>
+				context.Products.AddRange(new List<Product>
 				{
-					new Shopper
+					new Product
 					{
-						Name = "TestName6",
+						TypeId = 1,
+						Name = "NewTestName1",
 						Price = 1000.00M,
 						Discount = 23,
-						Size = "XL",
+						Count = 100,
+						Description = "100% хлопок"
+					},
+					new Product
+					{
+						TypeId = 2,
+						Name = "NewTestName2",
+						Price = 1000.00M,
+						Discount = 23,
+						Count = 100,
+						Description = "100% хлопок"
+					},
+					new Product
+					{
+						TypeId = 3,
+						Name = "NewTestName3",
+						Price = 1000.00M,
+						Discount = 23,
+						Count = 100,
+						Description = "100% хлопок"
+					},
+					new Product
+					{
+						TypeId = 4,
+						Name = "NewTestName4",
+						Price = 1000.00M,
+						Discount = 23,
+						Count = 100,
+						Description = "100% хлопок"
+					},
+					new Product
+					{
+						TypeId = 5,
+						Name = "NewTestName5",
+						Price = 1000.00M,
+						Discount = 23,
+						Count = 100,
+						Description = "100% хлопок"
+					},
+					new Product
+					{
+						TypeId = 6,
+						Name = "NewTestName6",
+						Price = 1000.00M,
+						Discount = 23,
 						Count = 100,
 						Description = "100% хлопок"
 					}
 				});
 
+				context.SaveChanges();
+			}
+
+			if (!context.ProductSizes.Any())
+			{
+				context.ProductSizes.AddRange(new List<ProductSize>
+				{
+					new ProductSize
+					{
+						Name = "S"
+					},
+					new ProductSize
+					{
+						Name = "M"
+					},new ProductSize
+					{
+						Name = "L"
+					},
+					new ProductSize
+					{
+						Name = "XL"
+					}
+				});
 				context.SaveChanges();
 			}
 		}

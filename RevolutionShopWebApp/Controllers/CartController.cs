@@ -43,7 +43,7 @@ namespace RevolutionShopWebApp.Controllers
 				var cart = new List<CartItem>();
 				cart.Add(new CartItem
 				{
-					TShirt = _context.TShirts.FirstOrDefault(x => x.Id == id),
+					Product = _context.Products.FirstOrDefault(x => x.Id == id),
 					Quantity = 1 
 				});
 				SessionHelper.Set(HttpContext.Session, "cart", cart);
@@ -61,7 +61,7 @@ namespace RevolutionShopWebApp.Controllers
 				{
 					cart.Add(new CartItem
 					{
-						TShirt = _context.TShirts.FirstOrDefault(x => x.Id == id),
+						Product = _context.Products.FirstOrDefault(x => x.Id == id),
 						Quantity = 1
 					});
 				}
@@ -98,7 +98,7 @@ namespace RevolutionShopWebApp.Controllers
 			List<CartItem> cart = SessionHelper.Get<List<CartItem>>(HttpContext.Session, "cart");
 			for (var i = 0; i < cart.Count; i++)
 			{
-				if (cart[i].TShirt.Id.Equals(id))
+				if (cart[i].Product.Id.Equals(id))
 				{
 					return i;
 				}

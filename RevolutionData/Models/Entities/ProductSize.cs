@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RevolutionData.Models.Entities
 {
-	/// <summary>
-	/// Худи.
-	/// </summary>
-	internal class Hoodie
+	public class ProductSize
 	{
+		public int Id { get; set; }
+		public string Name { get; set; }
 	}
 }

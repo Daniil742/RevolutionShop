@@ -8,7 +8,7 @@ namespace RevolutionData.Models.Entities
 {
 	public class CartItem
 	{
-		public TShirt TShirt { get; set; }
+		public Product Product { get; set; }
 		public int Quantity { get; set; }
 	}
 }
