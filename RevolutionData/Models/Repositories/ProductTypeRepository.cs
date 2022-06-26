@@ -25,6 +25,11 @@ namespace RevolutionData.Models.Repositories
 				.ToList();
 		}
 
+		public List<ProductType> GetAllProductsWithDiscount()
+		{
+			throw new NotImplementedException();
+		}
+
 		public List<ProductType> GetAll()
 		{
 			return _context.ProductTypes.ToList();

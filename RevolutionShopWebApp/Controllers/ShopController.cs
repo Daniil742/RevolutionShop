@@ -21,7 +21,15 @@ namespace RevolutionShopWebApp.Controllers
 		/// <returns></returns>
 		public IActionResult ProductPage(int id)
 		{
-			var products = _unitOfWork.Products.GetAllProductsByType(id);
+			List<Product> products;
+			if (id == 0)
+			{
+				products = _unitOfWork.Products.GetAllProductsWithDiscount();
+			}
+			else
+			{
+				products = _unitOfWork.Products.GetAllProductsByType(id);
+			}
 			return View(products);
 		}
 

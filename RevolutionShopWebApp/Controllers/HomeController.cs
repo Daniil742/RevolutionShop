@@ -23,15 +23,6 @@ namespace RevolutionShopWebApp.Controllers
 		}
 
 		/// <summary>
-		/// Магазин.
-		/// </summary>
-		/// <returns></returns>
-		public IActionResult Shop()
-		{
-			return View();
-		}
-
-		/// <summary>
 		/// Лукбук.
 		/// </summary>
 		/// <returns> Страница с лукбуком. </returns>
@@ -46,7 +37,7 @@ namespace RevolutionShopWebApp.Controllers
 		/// <returns> Страница товаров со скидками. </returns>
 		public IActionResult Sale()
 		{
-			return View();
+			return RedirectToAction("ProductPage", "Shop");
 		}
 
 		/// <summary>

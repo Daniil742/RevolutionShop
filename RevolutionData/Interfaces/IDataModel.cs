@@ -10,6 +10,7 @@ namespace RevolutionData.Interfaces
 	public interface IDataModel<T> where T : class
 	{
 		List<T> GetAllProductsByType(int id);
+		List<T> GetAllProductsWithDiscount();
 		List<T> GetAll();
 		T Get(int id);
 	}

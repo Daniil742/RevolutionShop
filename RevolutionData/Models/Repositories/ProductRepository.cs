@@ -25,6 +25,13 @@ namespace RevolutionData.Models.Repositories
 				.ToList();
 		}
 
+		public List<Product> GetAllProductsWithDiscount()
+		{
+			return _context.Products
+				.Where(x => x.Discount != 0)
+				.ToList();
+		}
+
 		public List<Product> GetAll()
 		{
 			return _context.Products.ToList();
