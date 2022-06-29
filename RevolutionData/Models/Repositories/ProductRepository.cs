@@ -41,5 +41,24 @@ namespace RevolutionData.Models.Repositories
 		{
 			return _context.Products.FirstOrDefault(x => x.Id == id);
 		}
+
+		public void AddProduct(Product product)
+		{
+			_context.Products.Add(product);
+			_context.SaveChanges();
+		}
+
+		public void EditProduct(Product product)
+		{
+			_context.Products.Update(product);
+			_context.SaveChanges();
+		}
+
+		public void DeleteById(int id)
+		{
+			var product = _context.Products.FirstOrDefault(x => x.Id == id);
+			_context.Products.Remove(product);
+			_context.SaveChanges();
+		}
 	}
 }

@@ -1,0 +1,61 @@
+﻿@using RevolutionData.Models.Entities
+@model List<Product>
+@{
+	ViewBag.Title = "Администрирование";
+}
+
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class="adminTab">
+			<button class="tabLinks" onclick="openTab(event, 'Товары')">Товары</button>
+		</div>
+		<div class="adminTab">
+			<button class="tabLinks" onclick="openTab(event, 'Пользователи')">Пользователи</button>
+		</div>
+		<div class="adminTab">
+			<button class="tabLinks" onclick="openTab(event, 'Статистика')">Статистика</button>
+		</div>
+
+		@*<div id="Товары" class="tabContent">*@
+		<div>
+			<h1>Товары</h1>
+			<table>
+				<tr>
+					<th>Название</th>
+					<th>Цена</th>
+					<th>Скидка</th>
+					<th>Количество</th>
+					<th>Описание</th>
+					<th></th>
+					<th></th>
+				</tr>
+				@foreach (var product in Model)
+				{
+					<tr>
+						<td>@product.Name</td>
+						<td>@product.Price</td>
+						<td>@product.Discount</td>
+						<td>@product.Count</td>
+						<td>@product.Description</td>
+						<td>
+							<button onclick="document.location='@Url.Action("EditProduct", "Admin", new { id = @product.Id})'">Изменить</button>
+						</td>
+						<td>
+							<form asp-controller="Admin" asp-action="DeleteProduct" method="post"  asp-route-id="@product.Id">
+								<input type="submit" value="Удалить" />
+							</form>
+						</td>
+					</tr>
+				}
+			</table>
+			<button onclick="document.location='@Url.Action("AddProduct", "Admin")'">Добавить товар</button>
+		</div>
+		<div id="Пользователи" class="tabContent">
+			<h1>Пользователи</h1>
+		</div>
+		<div id="Статистика" class="tabContent">
+			<h1>Статистика</h1>
+		</div>
+	</body>
+</html>

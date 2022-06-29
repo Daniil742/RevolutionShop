@@ -12,12 +12,13 @@
 			<h2>Личный кабинет</h2>
 			<p>@Model.UserName</p>
 			<p>@Model.Email</p>
-			<p>Есть другой аккаунт?</p>
 			<h3>Корзина</h3>
 			<p>Ваша корзина пуста</p>
 			<form method="post" asp-controller="Account" asp-action="Logout">
+				<p>Есть другой аккаунт?</p>
 				<input type="submit" value="Выход" />
 			</form>
+			<button onclick="document.location='@Url.Action("Index", "Admin")'">Адмнистрирование</button>
 		</div>
 		<div>
 			<h2>Заказы</h2>

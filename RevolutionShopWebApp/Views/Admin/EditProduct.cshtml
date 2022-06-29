@@ -1,0 +1,36 @@
+﻿@using RevolutionData.Models.Entities
+@model Product
+@{
+	ViewBag.Title = "";
+}
+
+<!DOCTYPE html>
+<html>
+	<body>
+		<form asp-action="EditProduct" asp-controller="Admin" asp-route-id="@Model.Id">
+			<p>
+                <label asp-for="Name">Название</label><br />
+                <input type="text" asp-for="Name" />
+            </p>
+            <p>
+                <label asp-for="Price">Цена</label><br />
+                <input type="number" asp-for="Price" />
+            </p>
+            <p>
+                <label asp-for="Discount">Скидка</label><br />
+                <input type="number" asp-for="Discount" />
+            </p>
+            <p>
+                <label asp-for="Count">Количество</label><br />
+                <input type="number" asp-for="Count" />
+            </p>
+            <p>
+                <label asp-for="Description">Описание</label><br />
+                <input type="text" asp-for="Description" />
+            </p>
+            <p>
+                <input type="submit" value="Сохранить" />
+            </p>
+		</form>
+	</body>
+</html>

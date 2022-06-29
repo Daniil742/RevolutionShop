@@ -12,6 +12,9 @@ namespace RevolutionData.Interfaces
 		List<T> GetAllProductsByType(int id);
 		List<T> GetAllProductsWithDiscount();
 		List<T> GetAll();
+		void AddProduct(T product);
+		void EditProduct(T product);
+		void DeleteById(int id);
 		T Get(int id);
 	}
 }

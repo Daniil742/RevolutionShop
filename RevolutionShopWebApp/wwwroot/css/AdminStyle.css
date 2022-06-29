@@ -1,0 +1,31 @@
+﻿.adminTab {
+	overflow: hidden;
+	border: 1px solid #4CAF50;
+	background-color: #C8E6C9;
+}
+
+.adminTab button {
+	background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.adminTab button:hover {
+    background-color: #FFEB3B;
+}
+
+.adminTab button.active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.tabContent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #4CAF50;
+    border-top: none;
+}

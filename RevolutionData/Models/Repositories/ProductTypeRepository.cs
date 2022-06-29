@@ -39,5 +39,20 @@ namespace RevolutionData.Models.Repositories
 		{
 			return _context.ProductTypes.FirstOrDefault(x => x.Id == id);
 		}
+
+		public void AddProduct(ProductType productType)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EditProduct(ProductType productType)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteById(int id)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
