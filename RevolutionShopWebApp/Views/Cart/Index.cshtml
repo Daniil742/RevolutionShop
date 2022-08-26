@@ -2,33 +2,71 @@
 @model List<CartItem>
 @{
     ViewBag.Title = "Корзина";
+    decimal result = 0;
+    const decimal deliverPrice = 350;
 }
 
 <!DOCTYPE html>
 <html>
+    <head>
+		<link rel="stylesheet" asp-href-include="~/css/CartStyle/IndexStyleSheet.css" asp-append-version="true"/>
+	</head>
 	<body>
-    @if(Model != null && Model.Count != 0)
-    {
-        <div>
-            <h1>Корзина</h1>
-            @for(var i = 0; i < Model.Count; i++)
-            {
-                <div>
-                    <p>Футболка @Model[i].Product.Name</p>
-                    <p>Цена @Model[i].Product.Price</p>
-                    <p>Количество @Model[i].Quantity</p>
-                    <button onclick="location.href='@Url.Action("RemoveItem", "Cart", new { id = Model[i].Product.Id })'">X</button>
+        <div class="container">
+            <div class="center">
+                <div class="sections-name">
+                @if (Model != null && Model.Count != 0)
+                {
+                    <div class="cart">
+                        <h1>Корзина</h1>
+                        @for (var i = 0; i < Model.Count; i++)
+                        {
+                            result += (Model[i].Product.Price / 100) * (100 - Model[i].Product.Discount) * Model[i].Quantity;
+                            <div class="item">
+                                <div class="part-1">
+                                    <img src="https://fun-cats.ru/wp-content/uploads/2/c/0/2c0fd406c831a6b91ab19cfec0fcde91.jpeg">
+                                </div>
+                                <div class="part-2">
+                                    <p>@Model[i].Product.Name</p>
+                                    <p>Размер: </p>
+                                    <p>Кол-во: @Model[i].Quantity</p>
+                                </div>
+                                <div class="part-3">
+                                    <p><a class="btn" href='@Url.Action("RemoveItem", "Cart", new { id = Model[i].Product.Id })'>+</a></p>
+                                    <p><br /></p>
+                                    <p>@((Model[i].Product.Price / 100) * (100 - Model[i].Product.Discount) * Model[i].Quantity) руб.</p>
+                                </div>
+                            </div>
+                        }
+                        <hr>
+                        <div class="item">
+                            <div class="part-4">
+                                <p>Товары</p>
+                                <p>Стоимоть доставки</p>
+                                <p class="result">Итого</p>
+                            </div>
+                            <div class="part-5">
+                                <p>@result руб.</p>
+                                <p>@deliverPrice руб.</p>
+                                <p class="result">@(result + deliverPrice) руб.</p>
+                            </div>
+                        </div>
+                        <div class="return-catalog">
+                            <p>Что-то забыли? <a href="~/Home/Index/#sections">Вернитесь в каталог товаров</a></p>
+                        </div>
+                    </div>
+                    <div class="order">
+                        <h1>Оформление заказа</h1>
+                    </div>
+                }
+                else
+                {
+                    <h1>Корзина</h1>
+                    <p>Ваша корзина пуста</p>
+                    <p><a href="~/Home/Index/#sections">Смотреть товары</a></p>
+                }
                 </div>
-            }
+            </div>
         </div>
-        <div>
-            <h1>Оформление заказа</h1>
-            <button >Оформить заказ</button>
-        </div>
-    }
-    else
-    {
-        <p>Корзина пуста</p>
-    }
 	</body>
 </html>

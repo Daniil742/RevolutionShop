@@ -1,0 +1,85 @@
+﻿.container {
+	width: 100%;
+}
+
+.center {
+	padding: 60px 0;
+}
+
+.authorization {
+	line-height: 1.5;
+	margin: 10px;
+	width: 35vw;
+	height: 350px;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	box-shadow: 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+	color: #555;
+	background-color: #efefef;
+}
+
+@media (max-width: 888px) {
+	.authorization {
+		width: 50vw;
+	}
+}
+
+@media (max-width: 500px) {
+	.authorization {
+		width: 65vw;
+	}
+}
+
+@media (max-width: 390px) {
+	.authorization {
+		width: 85vw;
+	}
+}
+
+.field {
+	margin-bottom: 10px;
+}
+
+.input-field {
+	width: 80%;
+	height: 40px;
+	border: 1px solid #555;
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.create-acc {
+	width: 80%;
+	height: 40px;
+	display: inline-table;
+}
+
+.create-acc a {
+	text-decoration: none;
+	color: #555;
+}
+
+.create-acc a:hover {
+	color: black;
+}
+
+.btn input {
+	width: 80%;
+	height: 40px;
+	color: #efefef;
+	background-color: black;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: 0.5s;
+	border: none;
+	margin-bottom: 10px;
+}
+
+.btn input:hover {
+	background-color: #555;
+}

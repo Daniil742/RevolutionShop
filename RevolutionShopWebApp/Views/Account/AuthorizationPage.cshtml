@@ -5,28 +5,39 @@
 
 <!DOCTYPE html>
 <html>
+    <head>
+		<link rel="stylesheet" asp-href-include="~/css/AccountStyle/AuthorizationPageStyleSheet.css" asp-append-version="true"/>
+	</head>
 	<body>
-		<h2>Авторизация</h2>
-        <a href="~/Account/RegistrationPage">Создать аккаунт</a>
-		<form method="post" asp-controller="Account" asp-action="AuthorizationPage" asp-route-returnUrl="@Model.ReturnUrl">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div>
-                <label asp-for="Email"></label><br />
-                <input asp-for="Email" />
-                <span asp-validation-for="Email"></span>
+        <div class="container">
+            <div class="center">
+                <div class="authorization">
+                    <h1>Вход</h1>
+                    <form method="post" asp-controller="Account" asp-action="AuthorizationPage" asp-route-returnUrl="@Model.ReturnUrl">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="field">
+                            @*<label class="label-field" asp-for="Email"></label><br />*@
+                            <input class="input-field" placeholder="Email" asp-for="Email" />
+                            <span asp-validation-for="Email"></span>
+                        </div>
+                        <div class="field">
+                            @*<label asp-for="Password"></label><br />*@
+                            <input class="input-field" placeholder="Password" asp-for="Password" />
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        @*<div>
+                            <label asp-for="RememberMe"></label><br />
+                            <input asp-for="RememberMe" />
+                        </div>*@
+                        <div class="btn">
+                            <input type="submit" value="Войти" />
+                        </div>
+                    </form>
+                    <div class="create-acc">
+                        <p><a href="~/Account/RegistrationPage">Создайте аккаунт</a> или войдите через соцсети</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label asp-for="Password"></label><br />
-                <input asp-for="Password" />
-                <span asp-validation-for="Password"></span>
-            </div>
-            <div>
-                <label asp-for="RememberMe"></label><br />
-                <input asp-for="RememberMe" />
-            </div>
-            <div>
-                <input type="submit" value="Войти" />
-            </div>
-        </form>
+        </div>
 	</body>
 </html>

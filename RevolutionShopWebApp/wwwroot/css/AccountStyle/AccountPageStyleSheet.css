@@ -1,0 +1,72 @@
+﻿.container {
+	width: 100%;
+}
+
+.center {
+	padding: 60px 0;
+}
+
+.general-info {
+	line-height: 1.5;
+	margin: 10px;
+	width: 30vw;
+	/*height: 700px;*/
+	height: auto; 
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	box-shadow: 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+	color: #555;
+	text-align: left;
+	vertical-align: top;
+}
+
+.general-info hr {
+	background-color: #efefef;
+	height: 1px;
+    border: none;
+}
+
+.order-info {
+	line-height: 1.5;
+	margin: 10px;
+	width: 50vw;
+	/*height: 700px;*/
+	height: auto;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	box-shadow: 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+	color: #555;
+	text-align: left;
+	vertical-align: top;
+}
+
+.personal-info {
+	padding-left: 10px;
+	padding-bottom: 30px;
+}
+
+.personal-info h1 {
+	color: black;
+}
+
+.cart-info {
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-bottom: 30px;
+}
+
+.cart-info h2 {
+	color: black;
+}
+
+.other {
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-bottom: 30px;
+}

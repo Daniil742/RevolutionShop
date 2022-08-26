@@ -5,25 +5,51 @@
 
 <!DOCTYPE html>
 <html>
+	<head>
+		<link rel="stylesheet" asp-href-include="~/css/AccountStyle/AccountPageStyleSheet.css" asp-append-version="true"/>
+	</head>
 	<body>
 	@if (User.Identity.IsAuthenticated)
 	{
-		<div>
-			<h2>Личный кабинет</h2>
-			<p>@Model.UserName</p>
-			<p>@Model.Email</p>
-			<h3>Корзина</h3>
-			<p>Ваша корзина пуста</p>
-			<form method="post" asp-controller="Account" asp-action="Logout">
-				<p>Есть другой аккаунт?</p>
-				<input type="submit" value="Выход" />
-			</form>
-			<button onclick="document.location='@Url.Action("Index", "Admin")'">Адмнистрирование</button>
+		<div class="container">
+			<div class="center">
+				<div class="general-info">
+					<div class="personal-info">
+						<h1>Личный кабинет</h1>
+						<p>@Model.UserName</p>
+						<p>@Model.Email</p>
+					</div>
+					<hr>
+					<div class="cart-info">
+						<h2>Корзина</h2>
+						<p>Ваша корзина пуста</p>
+					</div>
+					<hr>
+					<div class="other">
+						<form method="post" asp-controller="Account" asp-action="Logout">
+							<p>Есть другой аккаунт?</p>
+							<input type="submit" value="Выйти" />
+						</form>
+					</div>
+				</div>
+				<div class="order-info">
+					<div class="personal-info">
+						<h1>Заказы</h1>
+						<p>У вас пока нет заказов. Как только разместите заказ, он появится на этой странице.</p>
+					</div>
+					<div class="cart-info">
+						<h2>Нужна помощь? Свяжитесь с нами</h2>
+						<p>Почта revolution.glb@gmail.com</p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div>
-			<h2>Заказы</h2>
-			<p>У вас пока нет заказов. Как только разместите заказ, он появится на этой странице.</p>
-		</div>
+
+		<button onclick="document.location='@Url.Action("Index", "Admin")'">Адмнистрирование</button>
+	}
+	else
+	{
+
 	}
 	</body>
 </html>

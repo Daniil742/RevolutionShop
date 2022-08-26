@@ -1,106 +1,108 @@
 ﻿<!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-	<link rel="stylesheet" asp-href-include="~/css/**/*.css" asp-append-version="true"/>
-    <script type="text/javascript" src="https://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
-    <title>@ViewBag.Title</title>
-</head>
-<body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" asp-href-include="~/css/MainStyle/LayoutStyleSheet.css" asp-append-version="true"/>
+        <script type="text/javascript" src="https://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <header>
+            <div class="menu-container">
+                <div class="menu-center">
+                    <div class="menu-sections">
+                        <div class="menu-item">
+                            <p>logo</p>
+                        </div>
+                        <div class="menu-item">
+                            <a id="fullscreen-menu-link" class="full-menu" href="#">menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-    <nav>
-        <ul class="topmenu">
-            <li>
-                <a href="~/Home/Index">Логотип()</a>
-            </li>
-            <li>
-                <a href="~/Home/Index">Главная</a>
-            </li>
-
-            <li>
-                <a>Магазин</a>
-                @*<a class="down">Магазин</a>
-                <ul class="submenu">
-                    <li>
-                        <a href="~/Shop/TShirtPage">Футболки</a>
-                    </li>
-                    <li>
-                        <a href="~/Shop/LongsleevePage">Лонгсливы</a>
-                    </li>
-                    <li>
-                        <a href="~/Shop/HoodiePage">Худи</a>
-                    </li>
-                    <li>
-                        <a href="~/Shop/HeaddressPage">Головные уборы</a>
-                    </li>
-                    <li>
-                        <a href="~/Shop/PantAndShortPage">Брюки и шорты</a>
-                    </li>
-                    <li>
-                        <a href="~/Shop/ShopperPage">Шопперы</a>
-                    </li>
-                </ul>*@
-            </li>
-
-            <li>
-                <a href="~/Home/Lookbook">Лукбук</a>
-            </li>
-            <li>
-                <a href="~/Home/Sale">Sale</a>
-            </li>
-            <li>
-                <a href="~/Home/DeliveryAndPayment">Доставка и оплата</a>
-            </li>
-            <li>
-                <a href="~/Home/Contact">Контакты</a>
-            </li>
-            <li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a href="~/Account/AccountPage">Личный кабинет()</a>
-                }
-                else
-                {
-                    <a href="~/Account/AuthorizationPage">Личный кабинет</a>
-                }
-            </li>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li>
-                    <a href="~/Cart/Index">Корзина()</a>
-                </li>
-            }
-            <li>
-                <a href="#blackoutLinks">Ссылки()</a>
-            </li>
-        </ul>
-    </nav>
-
-    <div id="blackoutLinks" class="links">
-        <div>
-            <a href="#close" title="Закрыть" class="close">X</a>
-            <a>Ссылка на вк</a>
+        <div id="fullscreen-menu-modal" class="fullscreen-menu-background">
+            <div class="fullscreen-menu-content">
+                <span class="close-fullscreen-menu"></span>
+                <div>
+                    <ul>
+                        <li>
+                            <a href='@Url.Action("Index", "Home")'>Главная</a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Index/#sections">Магазин</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Action("LookBook", "Home")'>Лукбук</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Action("ProductPage", "Shop")'>Sale</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Action("DeliveryAndPayment", "Home")'>Доставка и оплата</a>
+                        </li>
+                        <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href='@Url.Action("AccountPage", "Account")'>Личный кабинет(в системе)</a>
+                        }
+                        else
+                        {
+                            <a href='@Url.Action("AuthorizationPage", "Account")'>Личный кабинет(не в системе)</a>
+                        }
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <a href='@Url.Action("Index", "Cart")'>Корзина()</a>
+                            </li>
+                        }
+                        <li>
+                            <a href='@Url.Action("Contact", "Home")'>Контакты?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div>
-        @RenderBody()
-    </div>
-    <footer>
+        <div>
+            @RenderBody()
+        </div>
+
+        <footer class="footer-holder">
         @if (IsSectionDefined("Footer"))
         {
             @RenderSection("Footer")
         }
         else
         {
-            <div>
-                <p>По вопросам сотрудничества и предложениям:</p>
-                <button>Почта</button>
+            <div class="container">
+                <div class="center">
+                    <a href="layout.html">
+                        <img src="https://fun-cats.ru/wp-content/uploads/2/c/0/2c0fd406c831a6b91ab19cfec0fcde91.jpeg" style="max-height: 50px">
+                    </a>
+                    <div class="footer-menu">
+                        <div>
+                            <ul>
+                                <li>
+                                    <a href='@Url.Action("Index", "Home")'>About</a>
+                                </li>
+                                <li>
+                                    <a href='@Url.Action("Contact", "Home")'>Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-copyright">
+                        <p>Copyright © 2022 - All Rights Reserved</p>
+                    </div>
+                </div>
             </div>
         }
-    </footer>
+        </footer>
 
-    <script asp-src-include="~/js/**/*.js"></script>
-</body>
+        <script asp-src-include="~/js/**/*.js"></script>
+    </body>
 </html>

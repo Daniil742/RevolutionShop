@@ -1,0 +1,191 @@
+﻿.container {
+	width: 100%;
+}
+
+.center {
+	padding: 60px 0;
+}
+
+.sections-name {
+	text-transform: uppercase;
+	color: black;
+	padding: 10px 0;
+}
+
+.sections-name p {
+	margin-top: 15px;
+	color: #555;
+}
+
+.sections-name a {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 13px;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: black;
+	color: #efefef;
+}
+
+.sections-name a:hover {
+	background-color: #555;
+}
+
+.cart {
+	line-height: 1.5;
+	margin: 10px;
+	width: 30vw;
+	/*height: 700px;*/
+	height: auto;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	box-shadow: 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+	color: #555;
+	vertical-align: top;
+}
+
+.cart h1 {
+	color: black;
+	padding-bottom: 10px;
+}
+
+.order {
+	line-height: 1.5;
+	margin: 10px;
+	width: 50vw;
+	/*height: 700px;*/
+	height: auto;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	box-shadow: 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+	color: #555;
+	vertical-align: top;
+}
+
+.order h1 {
+	color: black;
+	padding-bottom: 10px;
+}
+
+.item {
+	width: 100%;
+	display: inline-flex;
+	font-size: 15px;
+	text-transform: none;
+	margin-bottom: 10px;
+}
+
+.return-catalog {
+	width: 100%;
+	display: inline-flex;
+	font-size: 15px;
+	text-transform: none;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+.return-catalog p {
+	margin-top: 0;
+}
+
+.return-catalog a {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	color: #555;
+	transition: 0.5s;
+	font-size: 15px;
+}
+
+.return-catalog a:hover {
+	color: black;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.part-1 {
+	width: 25vw;
+	border: 1px solid black;
+}
+
+.part-1 img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.part-2 {
+	width: 52vw;
+	border: 1px solid black;
+}
+
+.part-2 p {
+	margin: 0;
+	padding: 7.5px;
+	text-align: left;
+}
+
+.part-3 {
+	width: 23vw;
+	border: 1px solid black;
+}
+
+.part-3 p {
+	margin: 0;
+	padding: 7.5px;
+	text-align: right;
+}
+
+.part-3 a {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	color: #555;
+	font-size: 35px;
+	border-radius: 4px;
+	transform: rotate(45deg);
+	line-height: 12px;
+	vertical-align: middle;
+	font-weight: 100;
+	transition: 0.5s;
+}
+
+.part-3 a:hover {
+	color: black;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.part-4 {
+	width: 60vw;
+	border: 1px solid black;
+}
+
+.part-4 p {
+	margin: 0;
+	padding: 7.5px;
+	text-align: left;
+}
+
+.part-5 {
+	width: 40vw;
+	border: 1px solid black;
+}
+
+.part-5 p {
+	margin: 0;
+	padding: 7.5px;
+	text-align: right;
+}
+
+.result {
+	font-weight: bold;
+	font-size: 20px;
+	text-transform: uppercase;
+}

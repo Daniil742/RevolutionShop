@@ -6,41 +6,63 @@
 
 <!DOCTYPE html>
 <html>
+	<head>
+		<link rel="stylesheet" asp-href-include="~/css/HomeStyle/IndexStyleSheet.css" asp-append-version="true"/>
+	</head>
 	<body>
-
-		<div class="toppanel">
-			<h1>Разделы магазина</h1>
-			<h3>Выберите интересующую категорию товаров</h3>
+		<div class="container container-image">
+			<div class="title-center">
+				<div>
+					<div class="main-title">
+						<h1>We are revolution</h1>
+						<p>Work hard. Dream big.</p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<table class="categories">
-			<tr>
-				<td onclick="document.location='@Url.Action("ProductPage", "Shop", new { id = Model[0].Id })'">
-					<img width="250" height="400" src="https://p-o-k.ru/upload/iblock/202/Salatovaya-detskaya-futbolka-pod-logotip.jpg"/>
-					Новая ссылка на футболки
-				</td>
-				<td onclick="document.location='@Url.Action("ProductPage", "Shop", new { id = Model[1].Id })'">
-					<img width="250" height="400" src="https://brandpresent.ru/shop/project/1000/BP_02071102_3_tif_1000x1000.jpg"/>
-					Новая ссылка на лонгсливы
-				</td>
-				<td onclick="document.location='@Url.Action("ProductPage", "Shop", new { id = Model[2].Id })'">
-					<img width="250" height="400" src="https://i.pinimg.com/736x/ea/64/84/ea6484d9e4fdf002339d661fcb077b48.jpg"/>
-					Новая ссылка на худи
-				</td>
-			</tr>
-			<tr>
-				<td onclick="document.location='@Url.Action("ProductPage", "Shop", new { id = Model[3].Id })'">
-					<img width="250" height="400" src="https://brandpresent.ru/shop/project/1000/BP_6521.44_1_tif_1000x1000.jpg"/>
-					Новая ссылка на головные уборы
-				</td>
-				<td onclick="document.location='@Url.Action("ProductPage", "Shop", new { id = Model[4].Id })'">
-					<img width="250" height="400" src="https://cdn1.ozone.ru/multimedia/1017217011.jpg"/>
-					Новая ссылка на брюки и шорты
-				</td>
-				<td onclick="document.location='@Url.Action("ProductPage", "Shop", new { id = Model[5].Id })'">
-					<img width="250" height="400" src="https://toomanygifts.ru/upload/iblock/62d/62d192d4eb82e0ddc1ba0c0336ce0524.jpg"/>
-					Новая ссылка на шоперы
-				</td>
-			</tr>
-		</table>
+		<div class="container">
+			<div class="center">
+				<div id="sections" class="sections-name">
+					<h1>Разделы магазина</h1>
+					<p>Выберите интересующую категорию товаров</p>
+				</div>
+				<div class="sections">
+					<div class="item container-section-image-one" onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[0].Id })'">
+						<div class="item-info">
+							<p>Футболки</p>
+						</div>
+					</div>
+					<div class="item container-section-image-two" onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[1].Id })'">
+						<div class="item-info">
+							<p>Лонгсливы</p>
+						</div>
+					</div>
+					<div class="item container-section-image-three" onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[2].Id })'">
+						<div class="item-info">
+							<p>Худи</p>
+						</div>
+					</div>
+					<div class="item container-section-image-four" onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[3].Id })'">
+						<div class="item-info">
+							<p>
+								Головные<br />уборы
+							</p>
+						</div>
+					</div>
+					<div class="item container-section-image-five" onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[4].Id })'">
+						<div class="item-info">
+							<p>
+								Брюки&<br />шорты
+							</p>
+						</div>
+					</div>
+					<div class="item container-section-image-six" onclick="location.href='@Url.Action("ProductPage", "Shop", new { id = Model[5].Id })'">
+						<div class="item-info">
+							<p>Сумки</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

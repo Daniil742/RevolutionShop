@@ -1,0 +1,91 @@
+﻿.container {
+	width: 100%;
+}
+
+.container-image {
+	height: 735px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url("https://fun-cats.ru/wp-content/uploads/2/c/0/2c0fd406c831a6b91ab19cfec0fcde91.jpeg");
+	background-position: center;
+}
+
+.center {
+	padding: 60px 0;
+}
+
+.main-center {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.item {
+	margin: 10px;
+	width: 25vw;
+	height: 25vw;
+	border: 1px solid #555;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	background-color: rgba(255,255,255,0.85);
+	transition: 0.5s;
+}
+
+@media (max-width: 1025px) {
+	.item {
+		width: 70vw;
+		height: 15vw;
+	}
+}
+
+@media (max-width: 600px) {
+	.item {
+		height: 25vw;
+	}
+}
+
+@media (max-width: 450px) {
+	.item {
+		height: 35vw;
+	}
+}
+
+@media (max-width: 350px) {
+	.item {
+		height: 40vw;
+	}
+}
+
+.item-content {
+	top: 50%;
+	transform: translateY(-50%);
+	position: relative;
+	text-transform: uppercase;
+}
+
+.item-content p {
+	margin-top: 15px;
+	color: #555;
+}
+
+@media (max-width: 1025px) {
+	.item-content {
+		font-size: 12px;
+	}
+
+	.item-content p {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 300px) {
+	.item-content {
+		font-size: 10px;
+	}
+
+	.item-content p {
+		font-size: 10px;
+	}
+}
